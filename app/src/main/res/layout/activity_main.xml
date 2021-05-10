@@ -1,40 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity">
+</RelativeLayout>
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:orientation="vertical"-->
+<!--    tools:context=".MainActivity">-->
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="63dp"
-        android:layout_margin="7px"
-        android:fontFamily="sans-serif-black"
-        android:text="Hello, Bookworm."
-        android:textColor="@color/black"
-        android:textSize="40dp" />
+<!--    <TextView-->
+<!--        android:id="@+id/textView2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="63dp"-->
+<!--        android:layout_margin="7px"-->
+<!--        android:fontFamily="sans-serif-black"-->
+<!--        android:text="Hello, Bookworm."-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="40dp" />-->
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="57dp"
-        android:layout_margin="7px"
-        android:fontFamily="sans-serif-black"
-        android:text="Good Morning!"
-        android:textColor="@color/black"
-        android:textSize="33dp" />
+<!--    <TextView-->
+<!--        android:id="@+id/textView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="57dp"-->
+<!--        android:layout_margin="7px"-->
+<!--        android:fontFamily="sans-serif-black"-->
+<!--        android:text="Welcome!"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="33dp" />-->
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:fontFamily="casual"
-        android:text="RECOMMENDATIONS FOR YOU"
-        android:textColor="@color/black"
-        android:textSize="28dp" />
+<!--    <TextView-->
+<!--        android:id="@+id/textView3"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="55dp"-->
+<!--        android:fontFamily="casual"-->
+<!--        android:text="RECOMMENDATIONS FOR YOU"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="28dp" />-->
 
 
-</LinearLayout>
+<!--</LinearLayout>-->
