@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "888791319678",
+    "project_id": "bookbarter-bb34e",
+    "storage_bucket": "bookbarter-bb34e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:888791319678:android:62bcb15eb3fa4e200dc42f",
+        "android_client_info": {
+          "package_name": "com.shivani.bookbarter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "888791319678-m1flur0f8tkt3618bldjknol0pq674lv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjRcON23Imab2TLUUz0fYyQ4-g1459uco"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "888791319678-m1flur0f8tkt3618bldjknol0pq674lv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
