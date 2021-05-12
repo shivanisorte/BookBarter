@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardcodedText">
+
+    <item
+        android:id="@+id/nav_dashboard"
+        android:title="Dashboard" />
+
+    <item
+        android:id="@+id/nav_search"
+        android:title="Search" />
+
+    <item
+        android:id="@+id/nav_notifications"
+        android:title="Notifications" />
+
+    <item
+        android:id="@+id/nav_personal_library"
+        android:title="Personal Library" />
+
+    <item
+        android:id="@+id/nav_history"
+        android:title="Borrowing/Lending History" />
+
+    <item
+        android:id="@+id/nav_account"
+        android:title="My Account" />
+
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Logout" />
+
+</menu>

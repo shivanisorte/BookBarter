@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Book Barter</string>
+    <!--to toggle the open close button
+       of the navigation drawer-->
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
 </resources>
