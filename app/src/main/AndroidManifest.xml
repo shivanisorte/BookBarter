@@ -12,7 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BookBarter">
-        <activity android:name=".DashboardActivity"></activity>
+        <activity
+            android:name=".AccountActivity"
+            android:label="@string/title_activity_account"
+            android:theme="@style/Theme.BookBarter.NoActionBar"></activity>
+        <activity android:name=".NotificationsActivity" />
+        <activity android:name=".BorrowLendActivity" />
+        <activity android:name=".DashboardActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".SplashScreen">

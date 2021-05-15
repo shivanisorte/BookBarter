@@ -4,8 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 public class DashboardActivity extends AppCompatActivity {
 
@@ -43,5 +47,25 @@ public class DashboardActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+
+    public static void redirectActivity(Activity activity, Class aClass) {
+        //Initialize intent
+        Intent intent =  new Intent(activity,aClass);
+        //set flag
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        //Start activity
+        activity.startActivity(intent);
+
+    }
+
+    public  void OnDashboardClick(MenuItem item){
+
+    }
+
+    public void OnMyAccountClick(MenuItem item) {
+        redirectActivity(this, AccountActivity.class);
     }
 }
