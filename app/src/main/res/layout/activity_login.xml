@@ -16,17 +16,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
+<!--            <TextView-->
+<!--                android:id="@+id/welcom"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="30dp"-->
+<!--                android:layout_marginTop="50dp"-->
+<!--                android:gravity="center"-->
+<!--                android:text="Welcome!"-->
+<!--                android:textColor="@color/colorBlack"-->
+<!--                android:textSize="30sp"-->
+<!--                android:textStyle="bold" />-->
+
+            <ImageView
                 android:id="@+id/welcom"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="50dp"
+                android:src="@drawable/bbtlogodark"
+                android:adjustViewBounds="true"
+                android:maxWidth="900px"
+                android:maxHeight="900px"
                 android:gravity="center"
-                android:text="Welcome!"
-                android:textColor="@color/colorBlack"
-                android:textSize="30sp"
-                android:textStyle="bold" />
+                android:scaleType="fitCenter"
+                android:layout_marginLeft="100px"
+                android:layout_marginTop="50px"
+                />
 
             <TextView
                 android:id="@+id/email"
@@ -34,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/welcom"
                 android:layout_marginStart="35dp"
-                android:layout_marginTop="120dp"
+                android:layout_marginTop="20dp"
                 android:text="Email"
                 android:textColor="@color/colorBlack" />
 
@@ -49,7 +63,7 @@
                 android:layout_marginRight="30dp"
                 android:background="@drawable/edit"
                 android:drawableStart="@drawable/ic_email"
-                android:hint="Email..."
+                android:hint="Email Address"
                 android:inputType="textEmailAddress"
                 android:padding="8dp" />
 
@@ -74,7 +88,7 @@
                 android:layout_marginRight="30dp"
                 android:background="@drawable/edit"
                 android:drawableStart="@drawable/password"
-                android:hint="Password..."
+                android:hint="Password"
                 android:inputType="textPassword"
                 android:padding="8dp" />
 
@@ -86,7 +100,7 @@
                 android:layout_marginStart="210dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="23dp"
-                android:text="Forget Password?"
+                android:text="Forgot Password?"
                 android:textAlignment="center"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="17sp"
@@ -116,7 +130,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="23dp"
-                android:text="Need new Account?Sign Up Here"
+                android:text="New User? Sign Up Here."
                 android:textAlignment="center"
                 android:textColor="@color/colorPrimary"
                 android:textSize="17sp"

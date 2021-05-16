@@ -6,4 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".BorrowLendActivity">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="314dp"
+        android:layout_height="202dp"
+        android:text="Borrowing lending history"
+        android:textColor="@color/black"
+        android:layout_marginTop="50dp"
+        android:textSize="50dp"
+        tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

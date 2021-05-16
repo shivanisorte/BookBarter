@@ -12,10 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BookBarter">
+        <activity android:name=".UploadLibActivity"></activity>
         <activity
             android:name=".AccountActivity"
             android:label="@string/title_activity_account"
-            android:theme="@style/Theme.BookBarter.NoActionBar"></activity>
+            android:theme="@style/Theme.BookBarter.NoActionBar" />
         <activity android:name=".NotificationsActivity" />
         <activity android:name=".BorrowLendActivity" />
         <activity android:name=".DashboardActivity" />

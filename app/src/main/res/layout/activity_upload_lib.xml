@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NotificationsActivity">
+    tools:context=".UploadLibActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="314dp"
         android:layout_height="202dp"
-        android:text="Your Notifications"
+        android:text="Upload your library"
         android:textColor="@color/black"
         android:layout_marginTop="50dp"
         android:textSize="50dp"

@@ -22,4 +22,13 @@
 
     <include layout="@layout/content_account" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="314dp"
+        android:layout_height="202dp"
+        android:text="Your Account"
+        android:textColor="@color/black"
+        android:layout_marginTop="50dp"
+        android:textSize="50dp" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -13,10 +13,10 @@
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/booklogo"
+        app:srcCompat="@drawable/bbtlogodark"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="16dp" />
+        tools:layout_editor_absoluteY="87dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

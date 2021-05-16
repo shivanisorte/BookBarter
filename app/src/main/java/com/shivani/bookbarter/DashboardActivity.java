@@ -62,8 +62,21 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     public  void OnDashboardClick(MenuItem item){
-
+        redirectActivity(this, DashboardActivity.class);
     }
+
+    public void OnNotificationsClick(MenuItem item){
+        redirectActivity(this, NotificationsActivity.class);
+    }
+
+    public void OnPersonalLibraryClick(MenuItem item){
+        redirectActivity(this, UploadLibActivity.class);
+    }
+
+    public void OnBorrowLendClick(MenuItem item){
+        redirectActivity(this, BorrowLendActivity.class);
+    }
+
 
     public void OnMyAccountClick(MenuItem item) {
         redirectActivity(this, AccountActivity.class);
