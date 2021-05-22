@@ -26,7 +26,7 @@ public class Authors {
         return authorName;
     }
 
-    public String getArtistGenre() {
+    public String getAuthorGenre() {
         return authorGenre;
     }
 }

@@ -93,4 +93,35 @@ public class UploadLibActivity extends AppCompatActivity {
             Toast.makeText(this, "Please enter a name", Toast.LENGTH_LONG).show();
         }
     }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //attaching value event listener
+        databaseAuthors.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                //clearing the previous artist list
+                authors.clear();
+
+                //iterating through all the nodes
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    //getting artist
+                    Authors author = postSnapshot.getValue(Authors.class);
+                    //adding artist to the list
+                    authors.add(author);
+                }
+
+                //creating adapter
+                AuthorList artistAdapter = new AuthorList(UploadLibActivity.this, authors);
+                //attaching adapter to the listview
+                listViewAuthor.setAdapter(artistAdapter);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
 }
