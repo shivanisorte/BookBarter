@@ -33,7 +33,7 @@ public class UploadLibActivity extends AppCompatActivity {
     Spinner spinnerGenre;
     Button buttonAddAuthor;
     ListView listViewAuthor;
-    List<AuthorActivity> authors;
+    List<Authors> authors;
 
     DatabaseReference databaseAuthors;
 
@@ -78,7 +78,7 @@ public class UploadLibActivity extends AppCompatActivity {
             String id = databaseAuthors.push().getKey();
 
             //creating an Author Object
-            AuthorActivity author = new AuthorActivity(id, name, genre);
+            Authors author = new Authors(id, name, genre);
 
             //Saving the Author
             databaseAuthors.child(id).setValue(author);

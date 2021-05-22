@@ -2,19 +2,18 @@ package com.shivani.bookbarter;
 
 import com.google.firebase.database.IgnoreExtraProperties;
 
-
-public class BookName {
+@IgnoreExtraProperties
+public class Book {
     private String id;
     private String bookName;
-    private int rating;
 
-    public BookName() {
+
+    public Book() {
 
     }
 
-    public BookName(String id, String bookName, int rating) {
+    public Book(String id, String bookName) {
         this.bookName = bookName;
-        this.rating = rating;
         this.id = id;
     }
 
@@ -22,7 +21,5 @@ public class BookName {
         return bookName;
     }
 
-    public int getRating() {
-        return rating;
-    }
+
 }

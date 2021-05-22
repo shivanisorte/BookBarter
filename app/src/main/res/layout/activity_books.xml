@@ -4,7 +4,7 @@
     android:id="@+id/activity_artist"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AuthorActivity">
+    tools:context=".Books">
 
     <TextView
         android:id="@+id/textViewArtist"
