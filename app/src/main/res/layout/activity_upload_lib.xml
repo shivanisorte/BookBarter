@@ -42,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/textView"
-        android:text="Tap on an Artist to add and view tracks"
+        android:text="Tap on an Author to add and view books"
         android:textAlignment="center" />
 
     <ListView

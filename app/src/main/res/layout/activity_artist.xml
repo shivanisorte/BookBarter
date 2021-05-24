@@ -20,7 +20,7 @@
         android:id="@+id/editTextName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter track name" />
+        android:hint="Enter book name" />
 
     <LinearLayout
         android:orientation="horizontal"

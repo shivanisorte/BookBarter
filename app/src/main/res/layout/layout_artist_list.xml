@@ -4,7 +4,7 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:text="Atif Aslam"
+        android:text="A"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:id="@+id/textViewName"
         android:layout_width="match_parent"
