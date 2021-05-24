@@ -29,8 +29,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class UploadLibActivity extends AppCompatActivity {
 
     //we will use these constants later to pass the artist name and id to another activity
-    public static final String ARTIST_NAME = "net.simplifiedcoding.firebasedatabaseexample.artistname";
-    public static final String ARTIST_ID = "net.simplifiedcoding.firebasedatabaseexample.artistid";
+    public static final String ARTIST_NAME = ".artistname";
+    public static final String ARTIST_ID = ".artistid";
 
     //view objects
     EditText editTextName;
@@ -128,40 +128,28 @@ public class UploadLibActivity extends AppCompatActivity {
             editTextName.setText("");
 
             //displaying a success toast
-            Toast.makeText(this, "Artist added", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Author added", Toast.LENGTH_LONG).show();
         } else {
             //if the value is not given displaying a toast
             Toast.makeText(this, "Please enter a name", Toast.LENGTH_LONG).show();
         }
     }
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 46088ae070da67a18b5b1cfb6329b382d0371175
     @Override
     protected void onStart() {
         super.onStart();
         //attaching value event listener
-<<<<<<< HEAD
         databaseArtists.addValueEventListener(new ValueEventListener() {
-=======
-        databaseAuthors.addValueEventListener(new ValueEventListener() {
->>>>>>> 46088ae070da67a18b5b1cfb6329b382d0371175
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 //clearing the previous artist list
-<<<<<<< HEAD
                 artists.clear();
-=======
-                authors.clear();
->>>>>>> 46088ae070da67a18b5b1cfb6329b382d0371175
 
                 //iterating through all the nodes
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     //getting artist
-<<<<<<< HEAD
                     Artist artist = postSnapshot.getValue(Artist.class);
                     //adding artist to the list
                     artists.add(artist);
@@ -171,17 +159,6 @@ public class UploadLibActivity extends AppCompatActivity {
                 ArtistList artistAdapter = new ArtistList(UploadLibActivity.this, artists);
                 //attaching adapter to the listview
                 listViewArtists.setAdapter(artistAdapter);
-=======
-                    Authors author = postSnapshot.getValue(Authors.class);
-                    //adding artist to the list
-                    authors.add(author);
-                }
-
-                //creating adapter
-                AuthorList artistAdapter = new AuthorList(UploadLibActivity.this, authors);
-                //attaching adapter to the listview
-                listViewAuthor.setAdapter(artistAdapter);
->>>>>>> 46088ae070da67a18b5b1cfb6329b382d0371175
             }
 
             @Override
@@ -190,7 +167,6 @@ public class UploadLibActivity extends AppCompatActivity {
             }
         });
     }
-<<<<<<< HEAD
 
     private void showUpdateDeleteDialog(final String artistId, String artistName) {
 
@@ -239,7 +215,7 @@ public class UploadLibActivity extends AppCompatActivity {
         //updating artist
         Artist artist = new Artist(id, name, genre);
         dR.setValue(artist);
-        Toast.makeText(getApplicationContext(), "Artist Updated", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "Author Updated", Toast.LENGTH_LONG).show();
         return true;
     }
 
@@ -256,11 +232,8 @@ public class UploadLibActivity extends AppCompatActivity {
 
         //removing all tracks
         drTracks.removeValue();
-        Toast.makeText(getApplicationContext(), "Artist Deleted", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "Author Deleted", Toast.LENGTH_LONG).show();
 
         return true;
     }
 }
-=======
-}
->>>>>>> 46088ae070da67a18b5b1cfb6329b382d0371175

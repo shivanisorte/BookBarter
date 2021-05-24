@@ -115,10 +115,10 @@ public class ArtistActivity extends AppCompatActivity {
             String id  = databaseTracks.push().getKey();
             Track track = new Track(id, trackName, rating);
             databaseTracks.child(id).setValue(track);
-            Toast.makeText(this, "Track saved", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Book saved", Toast.LENGTH_LONG).show();
             editTextTrackName.setText("");
         } else {
-            Toast.makeText(this, "Please enter track name", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please enter Book name", Toast.LENGTH_LONG).show();
         }
     }
 }
