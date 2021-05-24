@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BookBarter">
-        <activity android:name=".Books"></activity>
+        <activity android:name=".ArtistActivity"></activity>
         <activity android:name=".AuthorActivity" />
         <activity android:name=".UploadLibActivity" />
         <activity

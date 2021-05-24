@@ -8,49 +8,47 @@
 
 
     <EditText
-        android:id="@+id/editName"
+        android:id="@+id/editTextName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Author's Name" />
+        android:hint="Enter name" />
 
     <Spinner
         android:id="@+id/spinnerGenres"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editName"
-        android:tooltipText="Select Genre"
-        android:contentDescription="Genres"
-        android:layout_margin="20dp"
+        android:layout_below="@id/editTextName"
         android:entries="@array/genres"></Spinner>
 
     <Button
-        android:id="@+id/buttonAddAuthor"
+        android:id="@+id/buttonAddArtist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/spinnerGenres"
         android:text="Add" />
 
     <TextView
-        android:id="@+id/textViewAuthor"
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/buttonAddAuthor"
+        android:layout_below="@id/buttonAddArtist"
+        android:padding="16dp"
         android:text="Authors"
         android:textAlignment="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
     <TextView
-        android:id="@+id/textViewTapToAdd"
+        android:id="@+id/textView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textViewAuthor"
-        android:text="Tap on an Author to add and view books"
+        android:layout_below="@id/textView"
+        android:text="Tap on an Artist to add and view tracks"
         android:textAlignment="center" />
 
     <ListView
-        android:id="@+id/listViewAuthors"
+        android:id="@+id/listViewArtists"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewTapToAdd"></ListView>
+        android:layout_below="@+id/textView1"></ListView>
 
 </RelativeLayout>
