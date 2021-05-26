@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BookBarter">
-        <activity android:name=".ArtistActivity"></activity>
+        <activity android:name=".FormForSelling"></activity>
+        <activity android:name=".ArtistActivity" />
         <activity android:name=".UploadLibActivity" />
         <activity
             android:name=".AccountActivity"
