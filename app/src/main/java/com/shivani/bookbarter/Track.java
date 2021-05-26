@@ -28,6 +28,12 @@ public class Track implements Parcelable {
         count=0;
     }
 
+    public Track(String id, String trackName, int rating){
+        this.trackName=trackName;
+        this.rating=rating;
+        this.id=id;
+    }
+
     public String getTrackName() {
         return trackName;
     }
