@@ -24,15 +24,6 @@
         android:layout_marginTop="40dp"
         android:src="@drawable/ic_users" />
 
-    <TextView
-        android:id="@+id/profilepic"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Update Profile Pic"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/editname"

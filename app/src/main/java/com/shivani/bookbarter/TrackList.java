@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-
+//defining the custom adapter
 public class TrackList extends ArrayAdapter<Track> {
     private Activity context;
     List<Track> tracks;
@@ -28,7 +28,7 @@ public class TrackList extends ArrayAdapter<Track> {
 
         TextView textViewName = (TextView) listViewItem.findViewById(R.id.textViewName);
         TextView textViewRating = (TextView) listViewItem.findViewById(R.id.textViewGenre);
-
+        //get the data item for this position
         Track track = tracks.get(position);
         textViewName.setText(track.getTrackName());
         textViewRating.setText(String.valueOf(track.getRating()));
