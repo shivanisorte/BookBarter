@@ -67,7 +67,7 @@ public class BorrowLendActivity extends AppCompatActivity {
         mprofileObject = new profile();
 
 
-        ImageView logout = findViewById(R.id.log_out);
+        Button logout = findViewById(R.id.log_out);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,7 +102,7 @@ public class BorrowLendActivity extends AppCompatActivity {
                 mDatabaseReference.child(finalUid).setValue(mprofileObject);
                 Intent numbersIntent = new Intent(BorrowLendActivity.this, ArtistActivity.class);
                 //startActivity(numbersIntent);
-                startActivityForResult(numbersIntent,5);
+                startActivityForResult(numbersIntent, 5);
             }
         });
 
@@ -145,7 +145,6 @@ public class BorrowLendActivity extends AppCompatActivity {
                     mprofileObject.setEmail(user.getEmail());
                     mprofileObject.setName(user.getDisplayName());
                     mprofileObject.setUid(user.getUid());
-                    mprofileObject.setPhotourl("https://firebasestorage.googleapis.com/v0/b/book-exchange-49.appspot.com/o/profile.jpg?alt=media&token=bed7b9d0-70b6-4a7c-bc05-a17991e402b3");
                     mprofileObject.setPhoneno("01*********");
                     mDatabaseReference.child(user.getUid()).addValueEventListener(new ValueEventListener() {
                         @Override
@@ -197,7 +196,7 @@ public class BorrowLendActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    mprofileObject.setPhotourl("https://firebasestorage.googleapis.com/v0/b/book-exchange-49.appspot.com/o/profile.jpg?alt=media&token=bed7b9d0-70b6-4a7c-bc05-a17991e402b3");
+
                     mprofileObject.setPhoneno("01*********");
                 }
             }
