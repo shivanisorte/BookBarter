@@ -19,15 +19,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
+                android:src="@drawable/ic_users" />
 
                 />
 
 
-            <ImageView
+            <Button
                 android:id="@+id/log_out"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
+                android:text="Logout"
                 />
 
         </RelativeLayout>
