@@ -66,6 +66,11 @@
         android:id="@+id/listViewTracks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"></ListView>
+        android:layout_below="@+id/textView"
+        android:background="@color/ArtistListColor"
+        android:paddingBottom="@dimen/fab_margin"
+        android:paddingTop="@dimen/fab_margin"
+        android:paddingLeft="32dp">
+    </ListView>
 
 </RelativeLayout>
