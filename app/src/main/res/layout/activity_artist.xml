@@ -67,7 +67,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView"
-        android:background="@color/ArtistListColor"
+        android:background="#D1E4E6"
         android:paddingBottom="@dimen/fab_margin"
         android:paddingTop="@dimen/fab_margin"
         android:paddingLeft="32dp">

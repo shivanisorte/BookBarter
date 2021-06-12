@@ -25,7 +25,7 @@
             android:maxWidth="900px"
             android:maxHeight="900px"
             android:scaleType="fitCenter"
-            android:src="@drawable/booklogo" />
+            android:src="@drawable/bbtlogodark" />
 
         <TextView
             android:id="@+id/email"
