@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -25,6 +27,7 @@ import java.util.List;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 
 public class UploadLibActivity extends AppCompatActivity {
 
@@ -37,6 +40,7 @@ public class UploadLibActivity extends AppCompatActivity {
     Spinner spinnerGenre;
     Button buttonAddArtist;
     ListView listViewArtists;
+    SearchView searchItem;
 
     //a list to store all the artist from firebase database
     List<Artist> artists;
@@ -235,5 +239,16 @@ public class UploadLibActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Author Deleted", Toast.LENGTH_LONG).show();
 
         return true;
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+//        getMenuInflater().inflate(R.menu.searchbar,menu);
+//        MenuItem item =  menu.findItem(R.id.search);
+
+
+        return super.onCreateOptionsMenu(menu);
     }
 }

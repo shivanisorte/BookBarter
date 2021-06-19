@@ -45,10 +45,20 @@
         android:text="Tap on an Author to add and view books"
         android:textAlignment="center" />
 
+    <SearchView
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="15dp" />
+
     <ListView
         android:id="@+id/listViewArtists"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView1"></ListView>
+
+
+
 
 </RelativeLayout>
