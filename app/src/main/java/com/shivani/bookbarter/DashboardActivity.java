@@ -11,8 +11,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -54,9 +56,9 @@ public class DashboardActivity extends AppCompatActivity {
         recview.setLayoutManager(new LinearLayoutManager(this));
 
 
-        FirebaseRecyclerOptions<Artist> options =
-                new FirebaseRecyclerOptions.Builder<Artist>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("authors"), Artist.class)
+        FirebaseRecyclerOptions<model> options =
+                new FirebaseRecyclerOptions.Builder<model>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("students"), model.class)
                         .build();
 
         adapter = new MyAdapter(options);
@@ -128,6 +130,48 @@ public class DashboardActivity extends AppCompatActivity {
                     }
                 });
     }
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.searchmenu,menu);
+
+        MenuItem item=menu.findItem(R.id.search);
+
+        SearchView searchView=(SearchView)item.getActionView();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                processsearch(s);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                processsearch(s);
+                return false;
+            }
+        });
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    private void processsearch(String s)
+    {
+        FirebaseRecyclerOptions<model> options =
+                new FirebaseRecyclerOptions.Builder<model>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("students").orderByChild("name").startAt(s).endAt(s+"\uf8ff"), model.class)
+                        .build();
+
+        adapter=new MyAdapter(options);
+        adapter.startListening();
+        recview.setAdapter(adapter);
+
+    }
+
 
 
     public void OnMyAccountClick(MenuItem item) {
