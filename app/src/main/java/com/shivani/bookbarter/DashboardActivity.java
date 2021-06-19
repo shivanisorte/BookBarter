@@ -29,6 +29,7 @@ public class DashboardActivity extends AppCompatActivity {
     RecyclerView recview;
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
+    MyAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,20 +50,21 @@ public class DashboardActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-
-
-
-        recview = (RecyclerView)findViewById(R.id.recview);
+        recview = (RecyclerView) findViewById(R.id.recview);
         recview.setLayoutManager(new LinearLayoutManager(this));
 
 
         FirebaseRecyclerOptions<Artist> options =
                 new FirebaseRecyclerOptions.Builder<Artist>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("tracks"), Artist.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("authors"), Artist.class)
                         .build();
+
+        adapter = new MyAdapter(options);
+        recview.setAdapter(adapter);
 
 
     }
+
 
     // override the onOptionsItemSelected()
     // function to implement
@@ -79,10 +81,9 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
 
-
     public static void redirectActivity(Activity activity, Class aClass) {
         //Initialize intent
-        Intent intent =  new Intent(activity,aClass);
+        Intent intent = new Intent(activity, aClass);
         //set flag
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         //Start activity
@@ -90,24 +91,24 @@ public class DashboardActivity extends AppCompatActivity {
 
     }
 
-    public  void OnDashboardClick(MenuItem item){
+    public void OnDashboardClick(MenuItem item) {
         redirectActivity(this, DashboardActivity.class);
     }
 
-    public void OnNotificationsClick(MenuItem item){
+    public void OnNotificationsClick(MenuItem item) {
         redirectActivity(this, NotificationsActivity.class);
     }
 
-    public void OnPersonalLibraryClick(MenuItem item){
+    public void OnPersonalLibraryClick(MenuItem item) {
         redirectActivity(this, UploadLibActivity.class);
     }
 
-    public void OnBorrowLendClick(MenuItem item){
+    public void OnBorrowLendClick(MenuItem item) {
         redirectActivity(this, BorrowLendActivity.class);
     }
 
-    public  void OnLogoutClick(MenuItem item){
-        GoogleSignInClient mGoogleSignInClient ;
+    public void OnLogoutClick(MenuItem item) {
+        GoogleSignInClient mGoogleSignInClient;
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -115,7 +116,7 @@ public class DashboardActivity extends AppCompatActivity {
         mGoogleSignInClient = GoogleSignIn.getClient(getBaseContext(), gso);
         mGoogleSignInClient.signOut().addOnCompleteListener(DashboardActivity.this,
                 new OnCompleteListener<Void>() {
-            //signout Google
+                    //signout Google
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         FirebaseAuth.getInstance().signOut(); //signout firebase
@@ -132,6 +133,19 @@ public class DashboardActivity extends AppCompatActivity {
     public void OnMyAccountClick(MenuItem item) {
         redirectActivity(this, AccountActivity.class);
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
 }
+
 
 

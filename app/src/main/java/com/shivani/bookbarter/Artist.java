@@ -5,9 +5,9 @@ import com.google.firebase.database.IgnoreExtraProperties;
 
 @IgnoreExtraProperties
 public class Artist {
-    private String artistId;
-    private String artistName;
-    private String artistGenre;
+    private static String artistId;
+    private static String artistName;
+    private static String artistGenre;
 
     public Artist() {
         //this constructor is required
@@ -19,15 +19,15 @@ public class Artist {
         this.artistGenre = artistGenre;
     }
 
-    public String getArtistId() {
+    public static String getArtistId() {
         return artistId;
     }
 
-    public String getArtistName() {
+    public static String getArtistName() {
         return artistName;
     }
 
-    public String getArtistGenre() {
+    public static String getArtistGenre() {
         return artistGenre;
     }
 }
