@@ -4,6 +4,7 @@ import android.content.Intent;
 //import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,6 +20,8 @@ import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,6 +41,7 @@ public class UploadLibActivity extends AppCompatActivity {
     RecyclerView recview;
     MyAdapter adapter;
     FloatingActionButton fb;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,14 +51,23 @@ public class UploadLibActivity extends AppCompatActivity {
         recview=(RecyclerView)findViewById(R.id.recview);
         recview.setLayoutManager(new LinearLayoutManager(this));
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String email = user.getEmail();
+//        mAuth = FirebaseAuth.getInstance();
+//        if (mAuth.getCurrentUser() != null){
+//            String EMAIL= mAuth.getCurrentUser().getEmail();
+
+
         FirebaseRecyclerOptions<model> options =
                 new FirebaseRecyclerOptions.Builder<model>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("students").orderByChild("email").startAt("761").endAt("761"+"\uf8ff"), model.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("students").orderByChild("email").startAt(email).endAt(email+"\uf8ff"), model.class)
                         .build();
-
+        Log.v(email ,"Current user email obtained" );
 
         adapter=new MyAdapter(options);
         recview.setAdapter(adapter);
+
+//        }
 
 
         fb=(FloatingActionButton)findViewById(R.id.fadd);

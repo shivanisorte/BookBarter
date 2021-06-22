@@ -8,53 +8,80 @@
     app:cardUseCompatPadding="true">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="416dp"
+        android:layout_height="217dp"
         android:padding="15dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img1"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@mipmap/ic_launcher"
             android:layout_centerVertical="true"
-            android:id="@+id/img1"
-            app:civ_border_width="2dp"
+            android:src="@mipmap/ic_launcher"
             app:civ_border_color="#FF000000"
-            />
+            app:civ_border_width="2dp" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/nametext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/img1"
             android:text="This is Demo Name"
-            android:textStyle="bold"
-            android:textSize="25sp"
             android:textColor="#000"
-            android:layout_toRightOf="@id/img1"
-            android:layout_marginLeft="10dp"/>
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/coursetext"
-            android:text="This is Course Name"
-            android:textSize="25sp"
-            android:textColor="#000"
-            android:layout_toRightOf="@id/img1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@id/nametext"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/img1"
+            android:text="This is Course Name"
+            android:textColor="#000"
+            android:textSize="25sp" />
 
 
         <TextView
+            android:id="@+id/emailtext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/emailtext"
-            android:text="This is Email Name"
-            android:textSize="25sp"
-            android:textColor="#000"
-            android:layout_toRightOf="@id/img1"
             android:layout_below="@id/coursetext"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/img1"
+            android:text="This is Email Name"
+            android:textColor="#000"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/deletebutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/emailtext"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/img1"
+            android:width="130dp"
+            android:height="45px"
+            android:text="Delete"
+            android:fontFamily="@font/francois_one"
+            android:textColor="#442C2A" />
+
+        <Button
+            android:id="@+id/updatebutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/emailtext"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/deletebutton"
+            android:width="130dp"
+            android:fontFamily="@font/francois_one"
+            android:height="45px"
+            android:text="Update"
+            android:textColor="#442C2A" />
 
 
     </RelativeLayout>
