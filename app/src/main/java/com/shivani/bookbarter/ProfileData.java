@@ -1,6 +1,5 @@
 package com.shivani.bookbarter;
 
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,32 +12,44 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class AddData extends AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth;
+
+public class ProfileData extends AppCompatActivity
 {
-    EditText name,course,email,purl;
+    EditText fname,lname,phonenum,pincode;
     Button submit,back;
+    String email;
+
+//    Boolean check=Boolean.FALSE;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_data);
+        setContentView(R.layout.activity_profile_data);
 
-        name=(EditText)findViewById(R.id.add_name);
-        email=(EditText)findViewById(R.id.add_email);
-        course=(EditText)findViewById(R.id.add_course);
-        purl=(EditText)findViewById(R.id.add_purl);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        email = user.getEmail();
+
+        fname=(EditText)findViewById(R.id.first_name);
+        lname=(EditText)findViewById(R.id.last_name);
+        phonenum=(EditText)findViewById(R.id.phone_num);
+        pincode=(EditText)findViewById(R.id.pin_code);
 
         back=(Button)findViewById(R.id.add_back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),UploadLibActivity.class));
+                startActivity(new Intent(getApplicationContext(),AccountActivity.class));
                 finish();
             }
         });
@@ -55,20 +66,20 @@ public class AddData extends AppCompatActivity
     private void processinsert()
     {
         Map<String,Object> map=new HashMap<>();
-        map.put("name",name.getText().toString());
-        map.put("course",course.getText().toString());
-        map.put("email",email.getText().toString());
-        map.put("purl",purl.getText().toString());
-//        String emailid = email.getText().toString();
-        FirebaseDatabase.getInstance().getReference().child("students").push()
+        map.put("firstname",fname.getText().toString());
+        map.put("lastname",lname.getText().toString());
+        map.put("phonenum",phonenum.getText().toString());
+        map.put("pincode",pincode.getText().toString());
+        map.put("email",email);
+        FirebaseDatabase.getInstance().getReference().child("Users").push()
                 .setValue(map)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        name.setText("");
-                        course.setText("");
-                        email.setText("");
-                        purl.setText("");
+                        fname.setText("");
+                        lname.setText("");
+                        phonenum.setText("");
+                        pincode.setText("");
                         Toast.makeText(getApplicationContext(),"Inserted Successfully",Toast.LENGTH_LONG).show();
                     }
                 })

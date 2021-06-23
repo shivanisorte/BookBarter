@@ -10,36 +10,77 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:text="Edit Profile Data"
         android:textAlignment="center"
+        android:fontFamily="@font/francois_one"
         android:textColor="@android:color/black"
         android:textSize="26sp" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <ImageView
         android:id="@+id/setting_profile_image"
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_marginStart="140dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:src="@drawable/user" />
 
 
     <TextView
         android:id="@+id/username"
         android:textSize="20sp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FEDBD0"
+        android:fontFamily="@font/francois_one"
         android:text="UserNAme" />
+
+
+    <TextView
+        android:id="@+id/showemail"
+        android:textSize="20sp"
+        android:layout_marginTop="19dp"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FEDBD0"
+        android:fontFamily="@font/francois_one"
+        android:text="EMAIL ID" />
+
+
+    <TextView
+        android:id="@+id/showphonenum"
+        android:textSize="20sp"
+        android:layout_marginTop="19dp"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FEDBD0"
+        android:fontFamily="@font/francois_one"
+        android:text="MOBILe Num" />
+
+    <TextView
+        android:id="@+id/showpin"
+        android:textSize="20sp"
+        android:layout_marginTop="19dp"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FEDBD0"
+        android:fontFamily="@font/francois_one"
+        android:text="PinCODE" />
+
 
     <TextView
         android:id="@+id/editname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Update Name"
+        android:background="#F8E5DF"
+        android:layout_marginTop="19dp"
+        android:fontFamily="@font/francois_one"
+        android:text="Click Here to Update Name"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
@@ -48,10 +89,23 @@
         android:id="@+id/changepassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Change Password "
+        android:layout_marginTop="19dp"
+        android:fontFamily="@font/francois_one"
+        android:background="#F8E5DF"
+        android:text="Click Here to Change Password "
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/profilebutton"
+        android:layout_marginTop="30dp"
+        android:layout_width="200dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/francois_one"
+        android:textColor="@android:color/black"
+        android:text="Add Profile Details" />
+
 
 </LinearLayout>

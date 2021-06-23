@@ -15,6 +15,7 @@ import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -26,11 +27,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
@@ -48,6 +52,8 @@ import com.shivani.bookbarter.R;
 
 import java.util.HashMap;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class AccountActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
@@ -62,15 +68,82 @@ public class AccountActivity extends AppCompatActivity {
     ProgressDialog pd;
     private static final int STORAGE_REQUEST = 200;
     String storagePermission[];
-    String profileOrCoverPhoto;
+    private Button profilebutton;
+
+    TextView username,showemail,showphonenum,showpin;
+
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    String email = user.getEmail();
+
+//    String profileOrCoverPhoto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
+        profilebutton=(Button)findViewById(R.id.profilebutton);
+
+        username=(TextView) findViewById(R.id.username);
+        showemail=(TextView)findViewById(R.id.showemail);
+        showphonenum=(TextView)findViewById(R.id.showphonenum);
+        showpin=(TextView)findViewById(R.id.showpin);
+
+
+
+
+//        if(options.equals(null))
+//        {
+//            profilebutton.setVisibility(View.GONE);
+//        }
+
+
+
+
+////        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+//////        DatabaseReference userNameRef = rootRef.child("Users").child("-McsGiaE75pRxcvppxSz");
+////        DatabaseReference userNameRef = rootRef.child("Users").getRef().child("email").child(email);
+//        ValueEventListener eventListener = new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                if(dataSnapshot.exists()) {
+//                    profilebutton.setVisibility(View.GONE);
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {}
+//        };
+//        userNameRef.addListenerForSingleValueEvent(eventListener);
+
+
+
+//
+//        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+//        Query query = rootRef.child("Users").orderByChild("email").equalTo(email);
+//        query.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                if(dataSnapshot.exists()) {
+//                    profilebutton.setVisibility(View.GONE);
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {}
+//        });
+
+
+        profilebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),ProfileData.class));
+            }
+        });
+
+
 
         editname = findViewById(R.id.editname);
-        set = findViewById(R.id.setting_profile_image);
+//        set = findViewById(R.id.setting_profile_image);
         pd = new ProgressDialog(this);
         pd.setCanceledOnTouchOutside(false);
         editpassword = findViewById(R.id.changepassword);
@@ -84,6 +157,15 @@ public class AccountActivity extends AppCompatActivity {
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.exists()) {
+                    profilebutton.setVisibility(View.GONE);
+                    username.setText("new");
+                    showemail.setText(email);
+                    showphonenum.setText("new");
+                    showpin.setText("new");
+                }
+
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
 
                     String image = "" + dataSnapshot1.child("image").getValue();
@@ -321,6 +403,7 @@ public class AccountActivity extends AppCompatActivity {
         });
         builder.create().show();
     }
+
 
 
 }
