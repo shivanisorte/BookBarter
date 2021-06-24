@@ -51,6 +51,7 @@ import com.google.firebase.storage.UploadTask;
 import com.shivani.bookbarter.R;
 
 import java.util.HashMap;
+import java.util.Iterator;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -160,11 +161,33 @@ public class AccountActivity extends AppCompatActivity {
 
                 if(dataSnapshot.exists()) {
                     profilebutton.setVisibility(View.GONE);
-                    username.setText("new");
+//                    String uname = firebaseDatabase.getInstance().getReference().child("User").child("firstname").getValue();
+//                    username.setText(uname);
                     showemail.setText(email);
-                    showphonenum.setText("new");
-                    showpin.setText("new");
+//                    showphonenum.setText("new");
+//                    showpin.setText("new");
+
+                    HashMap<String, Object> hashmap = new HashMap<>();
+                    Iterator<DataSnapshot> myiterator = dataSnapshot.getChildren().iterator();
+                    while (myiterator.hasNext()) {
+
+                        DataSnapshot mysnapshot = myiterator.next();
+
+                        if (mysnapshot.getKey().equals("firstname")) {
+//                           String uname=mysnapshot.getValue().toString();
+//                            username.setText(uname);
+                        } else if (mysnapshot.getKey().equals("phonenum")) {
+                            String phone= mysnapshot.getValue().toString();
+                            showphonenum.setText(phone);
+                        } else if (mysnapshot.getKey().equals("pincode")) {
+                            String pinnum = mysnapshot.getValue().toString();
+                            showphonenum.setText(pinnum);
+                        }
+                    }
+
+
                 }
+
 
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
 
@@ -196,7 +219,7 @@ public class AccountActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 pd.setMessage("Updating Name");
-                showNamephoneupdate("name");
+                showNamephoneupdate("firstname");
             }
         });
     }
@@ -335,14 +358,14 @@ public class AccountActivity extends AppCompatActivity {
     // Updating name
     private void showNamephoneupdate(final String key) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Update" + key);
+        builder.setTitle("Update " + key);
 
         // creating a layout to write the new name
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
         layout.setPadding(10, 10, 10, 10);
         final EditText editText = new EditText(this);
-        editText.setHint("Enter" + key);
+        editText.setHint("Enter " + key);
         layout.addView(editText);
         builder.setView(layout);
 
@@ -355,8 +378,12 @@ public class AccountActivity extends AppCompatActivity {
 
                     // Here we are updating the new name
                     HashMap<String, Object> result = new HashMap<>();
-                    result.put(key, value);
-                    databaseReference.child(firebaseUser.getUid()).updateChildren(result).addOnSuccessListener(new OnSuccessListener<Void>() {
+//                    result.put(key, value);
+                    result.put("done", "True");
+
+
+
+                    databaseReference.child("updates").updateChildren(result).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             pd.dismiss();
@@ -371,15 +398,15 @@ public class AccountActivity extends AppCompatActivity {
                             Toast.makeText(AccountActivity.this, "Unable to update", Toast.LENGTH_LONG).show();
                         }
                     });
-                    if (key.equals("name")) {
-                        final DatabaseReference databaser = FirebaseDatabase.getInstance().getReference("Posts");
-                        Query query = databaser.orderByChild("uid").equalTo(uid);
+                    if (key.equals("firstname")) {
+                        final DatabaseReference databaser = FirebaseDatabase.getInstance().getReference("Users");
+                        Query query = databaser.orderByChild("email").equalTo(user.getEmail());
                         query.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                                     String child = databaser.getKey();
-                                    dataSnapshot1.getRef().child("uname").setValue(value);
+                                    dataSnapshot1.getRef().child("firstname").setValue(value); //imp
                                 }
                             }
 
