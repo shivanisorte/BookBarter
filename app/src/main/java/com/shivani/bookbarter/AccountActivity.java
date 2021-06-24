@@ -71,7 +71,10 @@ public class AccountActivity extends AppCompatActivity {
     String storagePermission[];
     private Button profilebutton;
 
-    TextView username,showemail,showphonenum,showpin;
+    TextView username;
+    TextView showemail;
+    TextView showphonenum;
+    TextView showpin;
 
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     String email = user.getEmail();
@@ -167,6 +170,43 @@ public class AccountActivity extends AppCompatActivity {
 //                    showphonenum.setText("new");
 //                    showpin.setText("new");
 
+
+
+//                    String uname= (String) dataSnapshot.child("Users").child(firebaseUser.getUid()).getValue(String.class);
+//                    username.setText(uname);
+
+
+//                    FirebaseDatabase.getInstance().getReference().child("Users").orderByKey().equalTo("firstname")
+////                    databaseReference.orderByKey().equalTo("firstname")
+//                            .addValueEventListener(new ValueEventListener() {
+//                      @Override
+//                      public void onDataChange(DataSnapshot dataSnapshot) {
+//
+//                          String uname = null;
+//                          for(DataSnapshot data : dataSnapshot.getChildren()) {
+//
+//                              uname = data.getKey().toString();
+//                          }
+//
+//                          if(query.equals("firstname")) {
+//
+//                              username.setText(uname);
+//
+//                          }
+//                          else {
+//                              Toast.makeText(AccountActivity.this, "Try restarting or adding profile info", Toast.LENGTH_SHORT).show();
+//                          }
+//
+//                      }
+//
+//                      @Override
+//                      public void onCancelled(DatabaseError databaseError) {
+//
+//                      }
+//                    });
+
+
+
                     HashMap<String, Object> hashmap = new HashMap<>();
                     Iterator<DataSnapshot> myiterator = dataSnapshot.getChildren().iterator();
                     while (myiterator.hasNext()) {
@@ -174,8 +214,8 @@ public class AccountActivity extends AppCompatActivity {
                         DataSnapshot mysnapshot = myiterator.next();
 
                         if (mysnapshot.getKey().equals("firstname")) {
-//                           String uname=mysnapshot.getValue().toString();
-//                            username.setText(uname);
+                           String uname=mysnapshot.getValue().toString();
+                            username.setText(uname);
                         } else if (mysnapshot.getKey().equals("phonenum")) {
                             String phone= mysnapshot.getValue().toString();
                             showphonenum.setText(phone);
