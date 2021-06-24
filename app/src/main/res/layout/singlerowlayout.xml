@@ -8,15 +8,14 @@
     app:cardUseCompatPadding="true">
 
     <RelativeLayout
-        android:layout_width="416dp"
-        android:layout_height="217dp"
+        android:layout_width="419dp"
+        android:layout_height="197dp"
         android:padding="15dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img1"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_centerVertical="true"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
             android:src="@mipmap/ic_launcher"
             app:civ_border_color="#FF000000"
             app:civ_border_width="2dp" />
@@ -29,8 +28,10 @@
             android:layout_toRightOf="@id/img1"
             android:text="This is Demo Name"
             android:textColor="#000"
-            android:textSize="25sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
+
+        <!--            android:textStyle="bold"-->
 
         <TextView
             android:id="@+id/coursetext"
@@ -41,7 +42,7 @@
             android:layout_toRightOf="@id/img1"
             android:text="This is Course Name"
             android:textColor="#000"
-            android:textSize="25sp" />
+            android:textSize="22sp" />
 
 
         <TextView
@@ -65,9 +66,10 @@
             android:layout_toRightOf="@id/img1"
             android:width="130dp"
             android:height="45px"
-            android:text="Delete"
             android:fontFamily="@font/francois_one"
-            android:textColor="#442C2A" />
+            android:text="Delete"
+            android:textColor="#442C2A"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/updatebutton"
@@ -78,10 +80,11 @@
             android:layout_marginTop="15dp"
             android:layout_toRightOf="@+id/deletebutton"
             android:width="130dp"
-            android:fontFamily="@font/francois_one"
             android:height="45px"
+            android:fontFamily="@font/francois_one"
             android:text="Update"
-            android:textColor="#442C2A" />
+            android:textColor="#442C2A"
+            android:textStyle="bold" />
 
 
     </RelativeLayout>
