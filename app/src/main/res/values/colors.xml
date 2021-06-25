@@ -8,6 +8,7 @@
     <color name="teal_700">#87013B</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="butonc">#CD4949</color>
 
     <color name="colorPrimary">#CC2E76BE</color>
     <color name="colorPrimaryDark">#CC073D74</color>

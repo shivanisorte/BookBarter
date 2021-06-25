@@ -136,7 +136,7 @@ public class MyAdapter extends FirebaseRecyclerAdapter<model,MyAdapter.myviewhol
     {
         CircleImageView img;
         TextView name,course,email;
-        Button deletebutton, updatebutton;
+        Button deletebutton, updatebutton, reqbutton;
         public myviewholder(@NonNull View itemView)
         {
             super(itemView);
@@ -147,6 +147,7 @@ public class MyAdapter extends FirebaseRecyclerAdapter<model,MyAdapter.myviewhol
 
             updatebutton= (Button) itemView.findViewById(R.id.updatebutton);
             deletebutton= (Button) itemView.findViewById(R.id.deletebutton);
+            reqbutton = (Button) itemView.findViewById(R.id.reqbutton);
         }
     }
 }
