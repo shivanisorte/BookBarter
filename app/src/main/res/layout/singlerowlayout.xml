@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -98,7 +99,19 @@
             android:textColor="#442C2A"
             android:textSize="15dp"
             android:textStyle="bold" />
-<!--        android:layout_marginLeft="40dp"-->
+
+<!--        <ImageButton-->
+<!--            android:id="@+id/imageButton"-->
+<!--            android:layout_toLeftOf="@id/deletebutton"-->
+<!--            android:layout_below="@id/img1"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:srcCompat="@drawable/ic_baseline_contact_mail_24"-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            tools:ignore="VectorDrawableCompat" />-->
+
+
+        <!--        android:layout_marginLeft="40dp"-->
 <!--        android:layout_marginRight="40dp"-->
 
     </RelativeLayout>
