@@ -3,6 +3,8 @@ package com.shivani.bookbarter;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +21,14 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.ViewHolder;
 
@@ -119,6 +128,41 @@ public class MyAdapter extends FirebaseRecyclerAdapter<model,MyAdapter.myviewhol
 
                 builder.show();
             }
+        });
+        holder.reqbutton.setOnClickListener(new View.OnClickListener() {
+            DatabaseReference ref;
+            @Override
+            public void onClick(View v) {
+
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String SUBJECT = "BORROW REQUEST VIA BOOK BARTER APP FOR ";
+                ref = FirebaseDatabase.getInstance().getReference("students").child(getRef(position).getKey());//.child("email");
+
+                // String  emailsend =  FirebaseDatabase.getInstance().getReference("students").child("email").toString();
+                ref.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        String emailsend = dataSnapshot.child("email").getValue(String.class);
+                        String bookName =  dataSnapshot.child("course").getValue(String.class);
+                        //do what you want with the likes
+                        Intent intent = new Intent(Intent.ACTION_SENDTO);
+                        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+                        intent.putExtra(Intent.EXTRA_EMAIL,  new String[]{emailsend});
+                        intent.putExtra(Intent.EXTRA_SUBJECT, SUBJECT+bookName);
+                        // if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
+                        v.getContext().startActivity(intent);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
+            }
+
+
+
         });
 
 
