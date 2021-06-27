@@ -24,14 +24,6 @@
                 />
 
 
-            <Button
-                android:id="@+id/log_out"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:text="Logout"
-                />
-
         </RelativeLayout>
 
 
@@ -47,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="100dp"
-                android:text="welcome"
+                android:text="Would You Like to Borrow this Book ?"
                 android:textAllCaps="true"
                 android:textColor="@color/cardview_dark_background"
 
@@ -64,27 +56,22 @@
             android:layout_weight="1.5"
             android:gravity="center"
             android:orientation="vertical">
-            <TextView
 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="select"
-                android:textColor="@color/cardview_dark_background" />
 
 
             <Button
-                android:id="@+id/buy_books"
-                android:layout_width="140dp"
+                android:id="@+id/req_books"
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="10dp"
-                android:text="buy_book"
+
                 />
 
             <Button
-                android:id="@+id/sell_books"
-                android:layout_width="140dp"
+                android:id="@+id/cancel_req"
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:text="sell_book"
+
                 />
 
 

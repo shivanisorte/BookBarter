@@ -1,6 +1,7 @@
 package com.shivani.bookbarter;
 
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -134,30 +135,37 @@ public class MyAdapter extends FirebaseRecyclerAdapter<model,MyAdapter.myviewhol
             @Override
             public void onClick(View v) {
 
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                String SUBJECT = "BORROW REQUEST VIA BOOK BARTER APP FOR ";
-                ref = FirebaseDatabase.getInstance().getReference("students").child(getRef(position).getKey());//.child("email");
+//                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//                String SUBJECT = "BORROW REQUEST VIA BOOK BARTER APP FOR ";
+//                ref = FirebaseDatabase.getInstance().getReference("students").child(getRef(position).getKey());//.child("email");
+//
+//                // String  emailsend =  FirebaseDatabase.getInstance().getReference("students").child("email").toString();
+//                ref.addValueEventListener(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(DataSnapshot dataSnapshot) {
+//                        String emailsend = dataSnapshot.child("email").getValue(String.class);
+//                        String bookName =  dataSnapshot.child("course").getValue(String.class);
+//                        //do what you want with the likes
+//                        Intent intent = new Intent(Intent.ACTION_SENDTO);
+//                        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+//                        intent.putExtra(Intent.EXTRA_EMAIL,  new String[]{emailsend});
+//                        intent.putExtra(Intent.EXTRA_SUBJECT, SUBJECT+bookName);
+//                        // if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
+//                        v.getContext().startActivity(intent);
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(DatabaseError databaseError) {
+//
+//                    }
+//                });
 
-                // String  emailsend =  FirebaseDatabase.getInstance().getReference("students").child("email").toString();
-                ref.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        String emailsend = dataSnapshot.child("email").getValue(String.class);
-                        String bookName =  dataSnapshot.child("course").getValue(String.class);
-                        //do what you want with the likes
-                        Intent intent = new Intent(Intent.ACTION_SENDTO);
-                        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
-                        intent.putExtra(Intent.EXTRA_EMAIL,  new String[]{emailsend});
-                        intent.putExtra(Intent.EXTRA_SUBJECT, SUBJECT+bookName);
-                        // if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
-                        v.getContext().startActivity(intent);
-                    }
+                Intent intent = new Intent(v.getContext(),BorrowLendActivity.class);
+                //set flag
+                //Start activity
+                intent.putExtra("uid",getRef(position).getKey().toString());
+                v.getContext().startActivity(intent);
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
 
             }
 

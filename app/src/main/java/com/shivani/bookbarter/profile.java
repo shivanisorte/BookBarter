@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 public class profile implements Parcelable {
     private String name;
-    private String photourl;
+   // private String photourl;
     private String email;
     private String phoneno;
     private String Uid;

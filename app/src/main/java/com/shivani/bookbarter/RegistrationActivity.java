@@ -89,9 +89,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     hashMap.put("email", email);
                     hashMap.put("uid", uid);
                     hashMap.put("name", uname);
-                    hashMap.put("onlineStatus", "online");
-                    hashMap.put("typingTo", "noOne");
-                    hashMap.put("image", "");
+
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                     DatabaseReference reference = database.getReference("Users");
                     reference.child(uid).setValue(hashMap);
