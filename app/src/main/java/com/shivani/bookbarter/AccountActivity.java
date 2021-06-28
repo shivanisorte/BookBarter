@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -62,14 +64,14 @@ public class AccountActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     StorageReference storageReference;
-    String storagepath = "Users_Profile_Cover_image/";
+//    String storagepath = "Users_Profile_Cover_image/";
     String uid;
     ImageView set;
     TextView editname, editpassword;
     ProgressDialog pd;
     private static final int STORAGE_REQUEST = 200;
     String storagePermission[];
-    private Button profilebutton;
+//    private Button profilebutton;
 
     TextView username;
     TextView showemail;
@@ -77,6 +79,7 @@ public class AccountActivity extends AppCompatActivity {
     TextView showpin;
 
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
     String email = user.getEmail();
 
 //    String profileOrCoverPhoto;
@@ -85,12 +88,53 @@ public class AccountActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
-        profilebutton=(Button)findViewById(R.id.profilebutton);
+//        profilebutton=(Button)findViewById(R.id.profilebutton);
 
         username=(TextView) findViewById(R.id.username);
         showemail=(TextView)findViewById(R.id.showemail);
         showphonenum=(TextView)findViewById(R.id.showphonenum);
         showpin=(TextView)findViewById(R.id.showpin);
+
+
+        showemail.setText(email);
+
+//        databaseReference = firebaseDatabase.getReference("Users");
+        databaseReference = firebaseDatabase.getInstance().getReference("Users");
+
+
+        ValueEventListener postListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                databaseReference.child("Users").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        if (!task.isSuccessful()) {
+                            Log.e("firebase", "Error getting data", task.getException());
+
+                        }
+                        else {
+                            Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                            String uname= (String) dataSnapshot.child(firebaseUser.getUid()).child("name").getValue();
+                            username.setText(uname);
+                            String phonenum= (String) dataSnapshot.child(firebaseUser.getUid()).child("phonenumber").getValue();
+                            showphonenum.setText(phonenum);
+                            String pincode= (String) dataSnapshot.child(firebaseUser.getUid()).child("pincode").getValue();
+                            showpin.setText(pincode);
+//                            Toast.makeText(AccountActivity.this, "this is "+uname, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
+        databaseReference.addValueEventListener(postListener);
+
+
 
 
 
@@ -137,12 +181,12 @@ public class AccountActivity extends AppCompatActivity {
 //        });
 
 
-        profilebutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),ProfileData.class));
-            }
-        });
+//        profilebutton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(getApplicationContext(),ProfileData.class));
+//            }
+//        });
 
 
 
@@ -156,6 +200,7 @@ public class AccountActivity extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
         databaseReference = firebaseDatabase.getReference("Users");
+
         storagePermission = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
         Query query = databaseReference.orderByChild("email").equalTo(firebaseUser.getEmail());
         query.addValueEventListener(new ValueEventListener() {
@@ -163,20 +208,21 @@ public class AccountActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 if(dataSnapshot.exists()) {
-                    profilebutton.setVisibility(View.GONE);
+//                    profilebutton.setVisibility(View.GONE);
 //                    String uname = firebaseDatabase.getInstance().getReference().child("User").child("firstname").getValue();
 //                    username.setText(uname);
-                    showemail.setText(email);
+//                    showemail.setText(email);
 //                    showphonenum.setText("new");
 //                    showpin.setText("new");
+//                    Toast.makeText(AccountActivity.this, "ds exist", Toast.LENGTH_SHORT).show();
 
 
-
-//                    String uname= (String) dataSnapshot.child("Users").child(firebaseUser.getUid()).getValue(String.class);
+//effects
+//                    String uname= (String) dataSnapshot.child("Users").child(firebaseUser.getUid()).child("name").getValue();
 //                    username.setText(uname);
 
 
-//                    FirebaseDatabase.getInstance().getReference().child("Users").orderByKey().equalTo("firstname")
+//                    FirebaseDatabase.getInstance().getReference().child("Users").orderByKey().equalTo("name")
 ////                    databaseReference.orderByKey().equalTo("firstname")
 //                            .addValueEventListener(new ValueEventListener() {
 //                      @Override
@@ -188,7 +234,7 @@ public class AccountActivity extends AppCompatActivity {
 //                              uname = data.getKey().toString();
 //                          }
 //
-//                          if(query.equals("firstname")) {
+//                          if(query.equals("name")) {
 //
 //                              username.setText(uname);
 //
@@ -206,38 +252,35 @@ public class AccountActivity extends AppCompatActivity {
 //                    });
 
 
-
-                    HashMap<String, Object> hashmap = new HashMap<>();
-                    Iterator<DataSnapshot> myiterator = dataSnapshot.getChildren().iterator();
-                    while (myiterator.hasNext()) {
-
-                        DataSnapshot mysnapshot = myiterator.next();
-
-                        if (mysnapshot.getKey().equals("name")) {
-                           String uname=mysnapshot.getValue().toString();
-                            username.setText(uname);
-                        } else if (mysnapshot.getKey().equals("phonenumber")) {
-                            String phone= mysnapshot.getValue().toString();
-                            showphonenum.setText(phone);
-                        } else if (mysnapshot.getKey().equals("pincode")) {
-                            String pinnum = mysnapshot.getValue().toString();
-                            showphonenum.setText(pinnum);
-                        }
-                    }
+//
+//                    HashMap<String, Object> hashmap = new HashMap<>();
+//                    for (DataSnapshot mysnapshot : dataSnapshot.getChildren()) {
+//
+//                        if (mysnapshot.getKey().equals("name")) {
+//                            String uname = mysnapshot.getValue().toString();
+//                            username.setText(uname);
+//                        } else if (mysnapshot.getKey().equals("phonenumber")) {
+//                            String phone = mysnapshot.getValue().toString();
+//                            showphonenum.setText(phone);
+//                        } else if (mysnapshot.getKey().equals("pincode")) {
+//                            String pinnum = mysnapshot.getValue().toString();
+//                            showphonenum.setText(pinnum);
+//                        }
+//                    }
 
 
                 }
 
 
-                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-
-                    String image = "" + dataSnapshot1.child("image").getValue();
-
-                    try {
-                        Glide.with(AccountActivity.this).load(image).into(set);
-                    } catch (Exception e) {
-                    }
-                }
+//                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+//
+//                    String image = "" + dataSnapshot1.child("image").getValue();
+//
+//                    try {
+//                        Glide.with(AccountActivity.this).load(image).into(set);
+//                    } catch (Exception e) {
+//                    }
+//                }
             }
 
             @Override

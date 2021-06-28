@@ -97,15 +97,15 @@
         android:textColor="@android:color/black"
         android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/profilebutton"
-        android:layout_marginTop="30dp"
-        android:layout_width="200dp"
-        android:layout_gravity="center"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/francois_one"
-        android:textColor="@android:color/black"
-        android:text="Add Profile Details" />
+<!--    <Button-->
+<!--        android:id="@+id/profilebutton"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:fontFamily="@font/francois_one"-->
+<!--        android:textColor="@android:color/black"-->
+<!--        android:text="Add Profile Details" />-->
 
 
 </LinearLayout>

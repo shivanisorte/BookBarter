@@ -26,13 +26,13 @@
             android:text="Welcome"
             android:gravity="center"
             android:textColor="#442C2A"
-            android:textSize="30sp" />
+            android:textSize="37dp" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:background="#FEDBD0"
             android:gravity="center"
             android:fontFamily="@font/francois_one"

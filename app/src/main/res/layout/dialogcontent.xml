@@ -9,11 +9,12 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Update Content Panel"
-        android:background="@color/colorPrimary"
+        android:text="Update Book Info"
+        android:fontFamily="@font/francois_one"
         android:textSize="25sp"
         android:gravity="center"
-        android:textColor="#fff"/>
+        android:textColor="#442C2A"
+        android:background="#FEDBD0"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -53,7 +54,8 @@
         android:text="Update"
         android:id="@+id/usubmit"
         android:background="@color/colorPrimary"
-        android:textColor="#fff"
+        android:textColor="#442C2A"
+        android:fontFamily="@font/francois_one"
         android:layout_gravity="center"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
