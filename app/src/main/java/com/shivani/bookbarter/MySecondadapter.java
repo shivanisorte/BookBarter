@@ -49,7 +49,7 @@ public class MySecondadapter extends FirebaseRecyclerAdapter<model,MySecondadapt
     protected void onBindViewHolder(@NonNull final myviewholder holder, final int position, @NonNull final model model)
     {
         holder.name.setText(model.getName());
-        holder.course.setText(model.getCourse());
+        holder.author.setText(model.getAuthor());
         holder.email.setText(model.getEmail());
         Glide.with(holder.img.getContext()).load("https://images.unsplash.com/photo-1476275466078-4007374efbbe?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjh8fGJvb2t8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60").into(holder.img);
 
@@ -64,13 +64,13 @@ public class MySecondadapter extends FirebaseRecyclerAdapter<model,MySecondadapt
                 View myview=dialogPlus.getHolderView();
                 final EditText purl=myview.findViewById(R.id.uimgurl);
                 final EditText name=myview.findViewById(R.id.uname);
-                final EditText course=myview.findViewById(R.id.ucourse);
+                final EditText author=myview.findViewById(R.id.uauthor);
                 final EditText email=myview.findViewById(R.id.uemail);
                 Button submit=myview.findViewById(R.id.usubmit);
 
                 purl.setText(model.getPurl());
                 name.setText(model.getName());
-                course.setText(model.getCourse());
+                author.setText(model.getAuthor());
                 email.setText(model.getEmail());
 
                 dialogPlus.show();
@@ -82,9 +82,9 @@ public class MySecondadapter extends FirebaseRecyclerAdapter<model,MySecondadapt
                         map.put("purl",purl.getText().toString());
                         map.put("name",name.getText().toString());
                         map.put("email",email.getText().toString());
-                        map.put("course",course.getText().toString());
+                        map.put("author",author.getText().toString());
 
-                        FirebaseDatabase.getInstance().getReference().child("students")
+                        FirebaseDatabase.getInstance().getReference().child("Books")
                                 .child(getRef(position).getKey()).updateChildren(map)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
@@ -116,7 +116,7 @@ public class MySecondadapter extends FirebaseRecyclerAdapter<model,MySecondadapt
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        FirebaseDatabase.getInstance().getReference().child("students")
+                        FirebaseDatabase.getInstance().getReference().child("Books")
                                 .child(getRef(position).getKey()).removeValue();
                     }
                 });
@@ -188,14 +188,14 @@ public class MySecondadapter extends FirebaseRecyclerAdapter<model,MySecondadapt
     class myviewholder extends RecyclerView.ViewHolder
     {
         CircleImageView img;
-        TextView name,course,email;
+        TextView name,author,email;
         Button deletebutton, updatebutton, reqbutton;
         public myviewholder(@NonNull View itemView)
         {
             super(itemView);
             img=(CircleImageView)itemView.findViewById(R.id.img1);
             name=(TextView)itemView.findViewById(R.id.nametext);
-            course=(TextView)itemView.findViewById(R.id.coursetext);
+            author=(TextView)itemView.findViewById(R.id.authortext);
             email=(TextView)itemView.findViewById(R.id.emailtext);
 
             updatebutton= (Button) itemView.findViewById(R.id.updatebutton);

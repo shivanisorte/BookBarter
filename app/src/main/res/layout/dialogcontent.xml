@@ -35,8 +35,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Course"
-        android:id="@+id/ucourse"
+        android:hint="Author's Name"
+        android:id="@+id/uauthor"
         android:layout_marginTop="10dp"
         android:textSize="20sp"/>
 

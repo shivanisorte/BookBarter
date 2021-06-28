@@ -65,7 +65,7 @@ public class UploadLibActivity extends AppCompatActivity {
 
         FirebaseRecyclerOptions<model> options =
                 new FirebaseRecyclerOptions.Builder<model>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("students").orderByChild("email").startAt(email).endAt(email+"\uf8ff"), model.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Books").orderByChild("email").startAt(email).endAt(email+"\uf8ff"), model.class)
                         .build();
         Log.v(email ,"Current user email obtained" );
 
@@ -129,7 +129,7 @@ public class UploadLibActivity extends AppCompatActivity {
     {
         FirebaseRecyclerOptions<model> options =
                 new FirebaseRecyclerOptions.Builder<model>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("students").orderByChild("email").startAt(s).endAt(s+"\uf8ff"), model.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Books").orderByChild("email").startAt(s).endAt(s+"\uf8ff"), model.class)
                         .build();
 
         adapter=new MySecondadapter(options);

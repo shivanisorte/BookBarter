@@ -3,14 +3,14 @@ package com.shivani.bookbarter;
 
 public class model
 {
-    String name,course,email,purl;
+    String name,author,email,purl;
     model()
     {
 
     }
-    public model(String name, String course, String email, String purl) {
+    public model(String name, String author, String email, String purl) {
         this.name = name;
-        this.course = course;
+        this.author = author;
         this.email = email;
         this.purl = purl;
     }
@@ -23,12 +23,12 @@ public class model
         this.name = name;
     }
 
-    public String getCourse() {
-        return course;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setCourse(String course) {
-        this.course = course;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getEmail() {

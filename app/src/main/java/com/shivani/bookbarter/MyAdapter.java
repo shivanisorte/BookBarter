@@ -48,7 +48,7 @@ public class MyAdapter extends FirebaseRecyclerAdapter<model,MyAdapter.myviewhol
     protected void onBindViewHolder(@NonNull final myviewholder holder, final int position, @NonNull final model model)
     {
         holder.name.setText(model.getName());
-        holder.course.setText(model.getCourse());
+        holder.author.setText(model.getAuthor());
         holder.email.setText(model.getEmail());
         Glide.with(holder.img.getContext()).load("https://images.unsplash.com/photo-1476275466078-4007374efbbe?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjh8fGJvb2t8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60").into(holder.img);
 
@@ -187,14 +187,14 @@ public class MyAdapter extends FirebaseRecyclerAdapter<model,MyAdapter.myviewhol
     class myviewholder extends RecyclerView.ViewHolder
     {
         CircleImageView img;
-        TextView name,course,email;
+        TextView name,author,email;
         Button deletebutton, updatebutton, reqbutton;
         public myviewholder(@NonNull View itemView)
         {
             super(itemView);
             img=(CircleImageView)itemView.findViewById(R.id.img1);
             name=(TextView)itemView.findViewById(R.id.nametext);
-            course=(TextView)itemView.findViewById(R.id.coursetext);
+            author=(TextView)itemView.findViewById(R.id.authortext);
             email=(TextView)itemView.findViewById(R.id.emailtext);
 
             updatebutton= (Button) itemView.findViewById(R.id.updatebutton);

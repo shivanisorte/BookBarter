@@ -53,8 +53,8 @@ public class AddData extends AppCompatActivity
 
         bookName=(EditText)findViewById(R.id.add_name);
         email=(EditText)findViewById(R.id.add_email);
-        authorName=(EditText)findViewById(R.id.add_course);
-        ISBNNo=(EditText)findViewById(R.id.add_purl);
+        authorName=(EditText)findViewById(R.id.add_authorname);
+        ISBNNo=(EditText)findViewById(R.id.add_isbn);
         back=(Button)findViewById(R.id.add_back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override

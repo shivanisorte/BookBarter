@@ -22,7 +22,7 @@
     <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:id="@+id/add_course"
+        android:id="@+id/add_authorname"
         android:textSize="20sp"
         android:hint="Author Name"
         android:layout_marginBottom="15dp"
@@ -41,7 +41,7 @@
     <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:id="@+id/add_purl"
+        android:id="@+id/add_isbn"
         android:textSize="20sp"
         android:hint="ISBN Number"
         android:layout_marginBottom="15dp"

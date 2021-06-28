@@ -35,7 +35,7 @@
         <!--            android:textStyle="bold"-->
 
         <TextView
-            android:id="@+id/coursetext"
+            android:id="@+id/authortext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/nametext"
@@ -50,7 +50,7 @@
             android:id="@+id/emailtext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/coursetext"
+            android:layout_below="@id/authortext"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/img1"
             android:text="This is Email Name"

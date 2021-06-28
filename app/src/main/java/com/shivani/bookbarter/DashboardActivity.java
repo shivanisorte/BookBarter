@@ -58,7 +58,7 @@ public class DashboardActivity extends AppCompatActivity {
 
         FirebaseRecyclerOptions<model> options =
                 new FirebaseRecyclerOptions.Builder<model>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("students"), model.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Books"), model.class)
                         .build();
 
         adapter = new MyAdapter(options);
@@ -164,7 +164,7 @@ public class DashboardActivity extends AppCompatActivity {
     {
         FirebaseRecyclerOptions<model> options =
                 new FirebaseRecyclerOptions.Builder<model>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("students").orderByChild("name").startAt(s).endAt(s+"\uf8ff"), model.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Books").orderByChild("name").startAt(s).endAt(s+"\uf8ff"), model.class)
                         .build();
 
         adapter=new MyAdapter(options);
