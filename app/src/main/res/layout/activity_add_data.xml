@@ -9,6 +9,7 @@
     tools:context=".AddData">
 
 
+
     <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"

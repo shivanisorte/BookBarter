@@ -159,6 +159,7 @@ public class DashboardActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+
     private void processsearch(String s)
     {
         FirebaseRecyclerOptions<model> options =
