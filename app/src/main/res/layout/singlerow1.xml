@@ -10,7 +10,7 @@
 
     <RelativeLayout
         android:layout_width="401dp"
-        android:layout_height="217dp"
+        android:layout_height="307dp"
         android:padding="15dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -27,9 +27,10 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/img1"
+            android:fontFamily="@font/francois_one"
             android:text="This is Demo Name"
             android:textColor="#000"
-            android:textSize="24sp"
+            android:textSize="23sp"
             android:textStyle="bold" />
 
         <!--            android:textStyle="bold"-->
@@ -40,28 +41,40 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/nametext"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="7dp"
             android:layout_toRightOf="@id/img1"
-            android:text="This is Course Name"
+            android:text="This is Author Name"
             android:textColor="#000"
-            android:textSize="22sp" />
-
+            android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/emailtext"
+            android:id="@+id/genre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/authortext"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/img1"
-            android:text="This is Email Name"
+            android:text="Book Genre"
             android:textColor="#000"
             android:textSize="20sp" />
+
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/emailtext"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_below="@id/genre"-->
+        <!--            android:layout_marginLeft="10dp"-->
+        <!--            android:layout_toRightOf="@id/img1"-->
+        <!--            android:text="This is Email Name"-->
+        <!--            android:textColor="#000"-->
+        <!--            android:textSize="20sp" />-->
 
         <Button
             android:id="@+id/deletebutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/emailtext"
+            android:layout_below="@id/genre"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="15dp"
             android:layout_toRightOf="@id/img1"
@@ -76,7 +89,7 @@
             android:id="@+id/updatebutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/emailtext"
+            android:layout_below="@id/genre"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="15dp"
             android:layout_toRightOf="@+id/deletebutton"

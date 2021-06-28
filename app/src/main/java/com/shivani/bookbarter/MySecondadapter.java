@@ -50,7 +50,8 @@ public class MySecondadapter extends FirebaseRecyclerAdapter<model,MySecondadapt
     {
         holder.name.setText(model.getName());
         holder.author.setText(model.getAuthor());
-        holder.email.setText(model.getEmail());
+//        holder.email.setText(model.getEmail());
+        holder.genre.setText("Genre: "+model.getGenre());
         Glide.with(holder.img.getContext()).load("https://images.unsplash.com/photo-1476275466078-4007374efbbe?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjh8fGJvb2t8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60").into(holder.img);
 
         holder.updatebutton.setOnClickListener(new View.OnClickListener() {
@@ -188,7 +189,7 @@ public class MySecondadapter extends FirebaseRecyclerAdapter<model,MySecondadapt
     class myviewholder extends RecyclerView.ViewHolder
     {
         CircleImageView img;
-        TextView name,author,email;
+        TextView name,author,email,genre;
         Button deletebutton, updatebutton, reqbutton;
         public myviewholder(@NonNull View itemView)
         {
@@ -196,7 +197,8 @@ public class MySecondadapter extends FirebaseRecyclerAdapter<model,MySecondadapt
             img=(CircleImageView)itemView.findViewById(R.id.img1);
             name=(TextView)itemView.findViewById(R.id.nametext);
             author=(TextView)itemView.findViewById(R.id.authortext);
-            email=(TextView)itemView.findViewById(R.id.emailtext);
+//            email=(TextView)itemView.findViewById(R.id.emailtext);
+            genre=(TextView)itemView.findViewById(R.id.genre);
 
             updatebutton= (Button) itemView.findViewById(R.id.updatebutton);
             deletebutton= (Button) itemView.findViewById(R.id.deletebutton);
