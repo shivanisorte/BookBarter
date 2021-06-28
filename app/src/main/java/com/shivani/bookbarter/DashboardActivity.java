@@ -162,9 +162,10 @@ public class DashboardActivity extends AppCompatActivity {
 
     private void processsearch(String s)
     {
+        String us = s.toUpperCase();
         FirebaseRecyclerOptions<model> options =
                 new FirebaseRecyclerOptions.Builder<model>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Books").orderByChild("name").startAt(s).endAt(s+"\uf8ff"), model.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Books").orderByChild("name").startAt(us).endAt(us+"\uf8ff"), model.class)
                         .build();
 
         adapter=new MyAdapter(options);

@@ -33,7 +33,7 @@ import java.util.Map;
 public class AddData extends AppCompatActivity
 {
 
-    EditText bookName,authorName,email,ISBNNo,bookGenre;
+    EditText bookName,authorName,email,ISBNNo,genre;
     Button submit,back;
 
     String ownername, pincode;
@@ -52,9 +52,10 @@ public class AddData extends AppCompatActivity
 
 
         bookName=(EditText)findViewById(R.id.add_name);
-        email=(EditText)findViewById(R.id.add_email);
+//        email=(EditText)findViewById(R.id.add_email);
         authorName=(EditText)findViewById(R.id.add_authorname);
         ISBNNo=(EditText)findViewById(R.id.add_isbn);
+        genre = (EditText)findViewById(R.id.genre);
         back=(Button)findViewById(R.id.add_back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,8 +97,9 @@ public class AddData extends AppCompatActivity
                         else {
                             Log.d("firebase", String.valueOf(task.getResult().getValue()));
                             ownername= (String) dataSnapshot.child(firebaseUser.getUid()).child("name").getValue();
-//                            Toast.makeText(AddData.this, "The owner is"+ownername, Toast.LENGTH_SHORT).show();
+
                             pincode= (String) dataSnapshot.child(firebaseUser.getUid()).child("pincode").getValue();
+//                            Toast.makeText(AddData.this, "The pin is "+pincode, Toast.LENGTH_SHORT).show();
 
 
                         }
@@ -119,12 +121,13 @@ public class AddData extends AppCompatActivity
     private void processinsert()
     {
         Map<String,Object> map=new HashMap<>();
-        map.put("name",bookName.getText().toString());
+        map.put("name",bookName.getText().toString().toUpperCase());
         map.put("author",authorName.getText().toString());
         map.put("email", FirebaseAuth.getInstance().getCurrentUser().getEmail());
         map.put("isbnno",ISBNNo.getText().toString());
         map.put("ownername",ownername);
         map.put("ownerpincode",pincode);
+        map.put("genre",genre.getText().toString());
         //String emailid = email.getText().toString();
         FirebaseDatabase.getInstance().getReference().child("Books").push()
                 .setValue(map)
@@ -133,7 +136,7 @@ public class AddData extends AppCompatActivity
                     public void onSuccess(Void aVoid) {
                         bookName.setText("");
                         authorName.setText("");
-                        email.setText("");
+                        genre.setText("");
                         ISBNNo.setText("");
                         Toast.makeText(getApplicationContext(),"Inserted Successfully",Toast.LENGTH_LONG).show();
                     }

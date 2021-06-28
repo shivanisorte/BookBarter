@@ -10,8 +10,9 @@
 
     <RelativeLayout
         android:layout_width="401dp"
-        android:layout_height="214dp"
+        android:layout_height="288dp"
         android:padding="15dp">
+
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img1"
@@ -27,9 +28,10 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/img1"
+            android:fontFamily="@font/francois_one"
             android:text="This is Demo Name"
             android:textColor="#000"
-            android:textSize="24sp"
+            android:textSize="23sp"
             android:textStyle="bold" />
 
         <!--            android:textStyle="bold"-->
@@ -40,30 +42,54 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/nametext"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="7dp"
             android:layout_toRightOf="@id/img1"
-            android:text="This is Course Name"
+            android:text="This is Author Name"
             android:textColor="#000"
-            android:textSize="22sp" />
+            android:textSize="20sp" />
 
 
         <TextView
-            android:id="@+id/emailtext"
+            android:id="@+id/genre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/authortext"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/img1"
-            android:text="This is Email Name"
+            android:text="Book Genre"
             android:textColor="#000"
             android:textSize="20sp" />
+
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/pintext"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_below="@id/genre"-->
+        <!--            android:layout_marginLeft="10dp"-->
+        <!--            android:layout_toRightOf="@id/img1"-->
+        <!--            android:text="This is Owner's Pin"-->
+        <!--            android:textColor="#000"-->
+        <!--            android:textSize="20sp" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/pin_code"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_below="@id/emailtext"-->
+        <!--            android:layout_marginLeft="10dp"-->
+        <!--            android:layout_toRightOf="@id/img1"-->
+        <!--            android:text="Pin Code"-->
+        <!--            android:textColor="#000"-->
+        <!--            android:textSize="20sp" />-->
 
 
         <Button
             android:id="@+id/reqbutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/emailtext"
-            android:layout_marginTop="20dp"
+            android:layout_below="@id/genre"
+            android:layout_marginTop="10dp"
             android:backgroundTint="#FAE2DA"
             android:fontFamily="@font/francois_one"
             android:text="Send Borrow Request"
