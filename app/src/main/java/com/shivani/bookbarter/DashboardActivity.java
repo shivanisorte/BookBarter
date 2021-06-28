@@ -122,7 +122,7 @@ public class DashboardActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         FirebaseAuth.getInstance().signOut(); //signout firebase
-                        Intent setupIntent = new Intent(getBaseContext(), RegistrationActivity.class);
+                        Intent setupIntent = new Intent(getBaseContext(), LoginActivity.class);
                         Toast.makeText(getBaseContext(), "Logged Out", Toast.LENGTH_LONG).show(); //if u want to show some text
                         setupIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(setupIntent);

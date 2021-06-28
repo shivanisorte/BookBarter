@@ -14,7 +14,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="3dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="7px"
         android:layout_marginBottom="7px"
         android:fontFamily="@font/francois_one"
@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/techer"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="45dp"
         android:text="Name"
         android:textColor="@color/colorBlack" />
 
@@ -98,11 +98,64 @@
         android:inputType="textPassword"
         android:padding="8dp" />
 
+
+
+    <TextView
+        android:id="@+id/phno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/register_password"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="10dp"
+        android:text="Phone Number"
+        android:textColor="@color/colorBlack" />
+
+    <EditText
+        android:id="@+id/enterphonenum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/phno"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/edit"
+        android:drawableStart="@drawable/ic_baseline_phone_24"
+        android:hint="Phone Number"
+        android:inputType="phone"
+        android:padding="8dp" />
+
+
+    <TextView
+        android:id="@+id/pin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/enterphonenum"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="10dp"
+        android:text="Pin Code"
+        android:textColor="@color/colorBlack" />
+
+    <EditText
+        android:id="@+id/enterpincode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pin"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/edit"
+        android:drawableStart="@drawable/ic_baseline_pin_drop_24"
+        android:hint="Pin Code"
+        android:inputType="number"
+        android:padding="8dp" />
+
     <Button
         android:id="@+id/register_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/register_password"
+        android:layout_below="@+id/enterpincode"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginRight="30dp"
