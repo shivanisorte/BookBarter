@@ -1,6 +1,7 @@
 package com.shivani.bookbarter;
 
 
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -38,9 +39,9 @@ import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class MyAdapter extends FirebaseRecyclerAdapter<model,MyAdapter.myviewholder>
+public class MySecondadapter extends FirebaseRecyclerAdapter<model,MySecondadapter.myviewholder>
 {
-    public MyAdapter(@NonNull FirebaseRecyclerOptions<model> options) {
+    public MySecondadapter(@NonNull FirebaseRecyclerOptions<model> options) {
         super(options);
     }
 
@@ -52,88 +53,88 @@ public class MyAdapter extends FirebaseRecyclerAdapter<model,MyAdapter.myviewhol
         holder.email.setText(model.getEmail());
         Glide.with(holder.img.getContext()).load("https://images.unsplash.com/photo-1476275466078-4007374efbbe?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjh8fGJvb2t8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60").into(holder.img);
 
-//        holder.updatebutton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                final DialogPlus dialogPlus=DialogPlus.newDialog(holder.name.getContext())
-//                        .setContentHolder(new ViewHolder(R.layout.dialogcontent))
-//                        .setExpanded(true,1100)
-//                        .create();
-//
-//                View myview=dialogPlus.getHolderView();
-//                final EditText purl=myview.findViewById(R.id.uimgurl);
-//                final EditText name=myview.findViewById(R.id.uname);
-//                final EditText course=myview.findViewById(R.id.ucourse);
-//                final EditText email=myview.findViewById(R.id.uemail);
-//                Button submit=myview.findViewById(R.id.usubmit);
-//
-//                purl.setText(model.getPurl());
-//                name.setText(model.getName());
-//                course.setText(model.getCourse());
-//                email.setText(model.getEmail());
-//
-//                dialogPlus.show();
-//
-//                submit.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        Map<String,Object> map=new HashMap<>();
-//                        map.put("purl",purl.getText().toString());
-//                        map.put("name",name.getText().toString());
-//                        map.put("email",email.getText().toString());
-//                        map.put("course",course.getText().toString());
-//
-//                        FirebaseDatabase.getInstance().getReference().child("students")
-//                                .child(getRef(position).getKey()).updateChildren(map)
-//                                .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                                    @Override
-//                                    public void onSuccess(Void aVoid) {
-//                                        dialogPlus.dismiss();
-//                                    }
-//                                })
-//                                .addOnFailureListener(new OnFailureListener() {
-//                                    @Override
-//                                    public void onFailure(@NonNull Exception e) {
-//                                        dialogPlus.dismiss();
-//                                    }
-//                                });
-//                    }
-//                });
-//
-//
-//            }
-//        });
-//
-//
-//        holder.deletebutton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                AlertDialog.Builder builder=new AlertDialog.Builder(holder.img.getContext());
-//                builder.setTitle("DELETE");
-//                builder.setMessage("Do you want to delete this book entry?");
-//
-//                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//                        FirebaseDatabase.getInstance().getReference().child("students")
-//                                .child(getRef(position).getKey()).removeValue();
-//                    }
-//                });
-//
-//                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//
-//                    }
-//                });
-//
-//                builder.show();
-//            }
-//        });
-        holder.reqbutton.setOnClickListener(new View.OnClickListener() {
-            DatabaseReference ref;
+        holder.updatebutton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
+                final DialogPlus dialogPlus=DialogPlus.newDialog(holder.name.getContext())
+                        .setContentHolder(new ViewHolder(R.layout.dialogcontent))
+                        .setExpanded(true,1100)
+                        .create();
+
+                View myview=dialogPlus.getHolderView();
+                final EditText purl=myview.findViewById(R.id.uimgurl);
+                final EditText name=myview.findViewById(R.id.uname);
+                final EditText course=myview.findViewById(R.id.ucourse);
+                final EditText email=myview.findViewById(R.id.uemail);
+                Button submit=myview.findViewById(R.id.usubmit);
+
+                purl.setText(model.getPurl());
+                name.setText(model.getName());
+                course.setText(model.getCourse());
+                email.setText(model.getEmail());
+
+                dialogPlus.show();
+
+                submit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Map<String,Object> map=new HashMap<>();
+                        map.put("purl",purl.getText().toString());
+                        map.put("name",name.getText().toString());
+                        map.put("email",email.getText().toString());
+                        map.put("course",course.getText().toString());
+
+                        FirebaseDatabase.getInstance().getReference().child("students")
+                                .child(getRef(position).getKey()).updateChildren(map)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        dialogPlus.dismiss();
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        dialogPlus.dismiss();
+                                    }
+                                });
+                    }
+                });
+
+
+            }
+        });
+
+
+        holder.deletebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder=new AlertDialog.Builder(holder.img.getContext());
+                builder.setTitle("DELETE");
+                builder.setMessage("Do you want to delete this book entry?");
+
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        FirebaseDatabase.getInstance().getReference().child("students")
+                                .child(getRef(position).getKey()).removeValue();
+                    }
+                });
+
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+                builder.show();
+            }
+        });
+//        holder.reqbutton.setOnClickListener(new View.OnClickListener() {
+//            DatabaseReference ref;
+//            @Override
+//            public void onClick(View v) {
 
 //                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 //                String SUBJECT = "BORROW REQUEST VIA BOOK BARTER APP FOR ";
@@ -160,19 +161,19 @@ public class MyAdapter extends FirebaseRecyclerAdapter<model,MyAdapter.myviewhol
 //                    }
 //                });
 
-                Intent intent = new Intent(v.getContext(),BorrowLendActivity.class);
-                //set flag
-                //Start activity
-                intent.putExtra("uid",getRef(position).getKey().toString());
-                v.getContext().startActivity(intent);
-
-
-            }
-
-
-
-        });
-
+//                Intent intent = new Intent(v.getContext(),BorrowLendActivity.class);
+//                //set flag
+//                //Start activity
+//                intent.putExtra("uid",getRef(position).getKey().toString());
+//                v.getContext().startActivity(intent);
+//
+//
+//            }
+//
+//
+//
+//        });
+//
 
     }
 
@@ -180,7 +181,7 @@ public class MyAdapter extends FirebaseRecyclerAdapter<model,MyAdapter.myviewhol
     @Override
     public myviewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
     {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.singlerowlayout,parent,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.singlerow1,parent,false);
         return new myviewholder(view);
     }
 

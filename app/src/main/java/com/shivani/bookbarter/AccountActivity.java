@@ -213,10 +213,10 @@ public class AccountActivity extends AppCompatActivity {
 
                         DataSnapshot mysnapshot = myiterator.next();
 
-                        if (mysnapshot.getKey().equals("firstname")) {
+                        if (mysnapshot.getKey().equals("name")) {
                            String uname=mysnapshot.getValue().toString();
                             username.setText(uname);
-                        } else if (mysnapshot.getKey().equals("phonenum")) {
+                        } else if (mysnapshot.getKey().equals("phonenumber")) {
                             String phone= mysnapshot.getValue().toString();
                             showphonenum.setText(phone);
                         } else if (mysnapshot.getKey().equals("pincode")) {
@@ -259,7 +259,7 @@ public class AccountActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 pd.setMessage("Updating Name");
-                showNamephoneupdate("firstname");
+                showNamephoneupdate("name");
             }
         });
     }
@@ -438,7 +438,7 @@ public class AccountActivity extends AppCompatActivity {
                             Toast.makeText(AccountActivity.this, "Unable to update", Toast.LENGTH_LONG).show();
                         }
                     });
-                    if (key.equals("firstname")) {
+                    if (key.equals("name")) {
                         final DatabaseReference databaser = FirebaseDatabase.getInstance().getReference("Users");
                         Query query = databaser.orderByChild("email").equalTo(user.getEmail());
                         query.addValueEventListener(new ValueEventListener() {
@@ -446,7 +446,7 @@ public class AccountActivity extends AppCompatActivity {
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                                     String child = databaser.getKey();
-                                    dataSnapshot1.getRef().child("firstname").setValue(value); //imp
+                                    dataSnapshot1.getRef().child("name").setValue(value); //imp
                                 }
                             }
 

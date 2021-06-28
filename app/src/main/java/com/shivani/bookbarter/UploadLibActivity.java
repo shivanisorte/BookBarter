@@ -43,7 +43,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class UploadLibActivity extends AppCompatActivity {
 
     RecyclerView recview;
-    MyAdapter adapter;
+    MySecondadapter adapter;
     FloatingActionButton fb;
     FirebaseAuth mAuth;
 
@@ -69,7 +69,7 @@ public class UploadLibActivity extends AppCompatActivity {
                         .build();
         Log.v(email ,"Current user email obtained" );
 
-        adapter=new MyAdapter(options);
+        adapter=new MySecondadapter(options);
         recview.setAdapter(adapter);
 
 //        }
@@ -132,7 +132,7 @@ public class UploadLibActivity extends AppCompatActivity {
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("students").orderByChild("email").startAt(s).endAt(s+"\uf8ff"), model.class)
                         .build();
 
-        adapter=new MyAdapter(options);
+        adapter=new MySecondadapter(options);
         adapter.startListening();
         recview.setAdapter(adapter);
 
