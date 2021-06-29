@@ -3,18 +3,22 @@ package com.shivani.bookbarter;
 
 public class model
 {
-    String name,author,email,purl,genre, ownerpincode;
+    String name,author,email,purl,genre, ownerpincode, bookname, personrequesting, timendate, location;
     model()
     {
 
     }
-    public model(String name, String author, String email, String purl, String genre, String ownerpincode) {
+    public model(String name, String author, String email, String purl, String genre, String ownerpincode, String bookname, String personrequesting, String timendate, String location) {
         this.name = name;
         this.author = author;
         this.email = email;
         this.purl = purl;
         this.genre=genre;
         this.ownerpincode=ownerpincode;
+        this.bookname=bookname;
+        this.personrequesting=personrequesting;
+        this.timendate=timendate;
+        this.location=location;
     }
 
     public String getGenre()
@@ -67,5 +71,21 @@ public class model
 
     public void setPurl(String purl) {
         this.purl = purl;
+    }
+
+    public String getbookname() {
+        return bookname;
+    }
+
+    public String getpersonrequesting() {
+        return personrequesting;
+    }
+
+    public String getTimendate(){
+        return timendate;
+    }
+
+    public String getlocation(){
+        return location;
     }
 }

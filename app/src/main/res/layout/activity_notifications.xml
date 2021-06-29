@@ -8,11 +8,32 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="314dp"
-        android:layout_height="202dp"
-        android:text="Your Notifications"
-        android:textColor="@color/black"
-        android:layout_marginTop="50dp"
-        android:textSize="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#442C2A"
+        android:textSize="35dp"
+        android:fontFamily="@font/francois_one"
+        android:padding="5dp"
+        android:text="REQUESTS"
+        android:textAlignment="center"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         tools:ignore="MissingConstraints" />
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/reqrecview"
+        android:layout_width="409dp"
+        android:layout_height="663dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

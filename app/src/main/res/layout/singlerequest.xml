@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="5dp"
+    android:elevation="5dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="401dp"
+        android:layout_height="278dp"
+        android:padding="15dp">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img1"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="@mipmap/ic_launcher"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp" />
+
+        <TextView
+            android:id="@+id/booknametext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/img1"
+            android:fontFamily="@font/francois_one"
+            android:text="Name of book requested"
+            android:textColor="#000"
+            android:textSize="23sp"
+            android:textStyle="bold" />
+
+        <!--            android:textStyle="bold"-->
+
+        <TextView
+            android:id="@+id/personrequesting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/booknametext"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="7dp"
+            android:layout_toRightOf="@id/img1"
+            android:text="Person requesting"
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+
+        <TextView
+            android:id="@+id/timendate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/personrequesting"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/img1"
+            android:text="Time And Date"
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/timendate"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/img1"
+            android:text="Exchange Location"
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+
+        <Button
+            android:id="@+id/accept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/location"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/img1"
+            android:width="130dp"
+            android:height="45px"
+            android:fontFamily="@font/francois_one"
+            android:text="Accept"
+            android:textColor="#442C2A"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/decline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/location"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/accept"
+            android:width="130dp"
+            android:height="45px"
+            android:fontFamily="@font/francois_one"
+            android:text="Reject"
+            android:textColor="#442C2A"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
