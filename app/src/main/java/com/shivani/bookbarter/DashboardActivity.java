@@ -23,14 +23,18 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class DashboardActivity extends AppCompatActivity {
 
     RecyclerView recview;
-    public DrawerLayout drawerLayout;
-    public ActionBarDrawerToggle actionBarDrawerToggle;
+//    public DrawerLayout drawerLayout;
+//    public ActionBarDrawerToggle actionBarDrawerToggle;
+    private DrawerLayout dl;
+    private ActionBarDrawerToggle t;
+    private NavigationView nv;
     MyAdapter adapter;
 
     @Override
@@ -40,16 +44,43 @@ public class DashboardActivity extends AppCompatActivity {
 
         // drawer layout instance to toggle the menu icon to open
         // drawer and back button to close drawer
-        drawerLayout = findViewById(R.id.my_drawer_layout);
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
+        dl = (DrawerLayout)findViewById(R.id.my_drawer_layout);
+        t = new ActionBarDrawerToggle(this, dl,R.string.Open, R.string.Close);
 
         // pass the Open and Close toggle for the drawer layout listener
         // to toggle the button
-        drawerLayout.addDrawerListener(actionBarDrawerToggle);
-        actionBarDrawerToggle.syncState();
+        dl.addDrawerListener(t);
+        t.syncState();
 
         // to make the Navigation drawer icon always appear on the action bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        nv = (NavigationView)findViewById(R.id.nv);
+        nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                switch(id)
+                {
+                    case R.id.nav_dashboard:
+                        redirectActivity(DashboardActivity.this, DashboardActivity.class);
+                        return true;
+                    case R.id.nav_personal_library:
+                        redirectActivity(DashboardActivity.this, UploadLibActivity.class);
+                        return true;
+                    case R.id.nav_account:
+                        redirectActivity(DashboardActivity.this, AccountActivity.class);
+                        return true;
+                    default:
+                        return true;
+                }
+
+
+
+
+            }
+        });
 
 
         recview = (RecyclerView) findViewById(R.id.recview);
@@ -76,9 +107,8 @@ public class DashboardActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+        if(t.onOptionsItemSelected(item))
             return true;
-        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -93,21 +123,6 @@ public class DashboardActivity extends AppCompatActivity {
 
     }
 
-    public void OnDashboardClick(MenuItem item) {
-        redirectActivity(this, DashboardActivity.class);
-    }
-
-    public void OnNotificationsClick(MenuItem item) {
-        redirectActivity(this, NotificationsActivity.class);
-    }
-
-    public void OnPersonalLibraryClick(MenuItem item) {
-        redirectActivity(this, UploadLibActivity.class);
-    }
-
-    public void OnBorrowLendClick(MenuItem item) {
-        redirectActivity(this, BorrowLendActivity.class);
-    }
 
     public void OnLogoutClick(MenuItem item) {
         GoogleSignInClient mGoogleSignInClient;
@@ -175,10 +190,10 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
 
-
-    public void OnMyAccountClick(MenuItem item) {
-        redirectActivity(this, AccountActivity.class);
-    }
+//
+//    public void OnMyAccountClick(MenuItem item) {
+//        redirectActivity(this, AccountActivity.class);
+//    }
 
     @Override
     protected void onStart() {

@@ -50,6 +50,7 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     implementation 'com.google.firebase:firebase-storage:20.0.0'
+    implementation 'androidx.drawerlayout:drawerlayout:1.1.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     testImplementation 'junit:junit:4.13.2'
@@ -59,6 +60,9 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-database:6.2.1'
     implementation 'com.orhanobut:dialogplus:1.11@aar'
     implementation 'com.android.support:multidex:1.0.3'
+
+    //noinspection GradleCompatible,GradleCompatible
+    implementation 'com.android.support:design:25.3.1'
 
 }
 

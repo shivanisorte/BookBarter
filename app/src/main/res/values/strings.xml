@@ -15,6 +15,10 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
 
+    <string name="Open">open</string>
+    <string name="Close">close</string>
+
+
     <string-array name="genres">
         <item>Mystery</item>
         <item>Thriller</item>

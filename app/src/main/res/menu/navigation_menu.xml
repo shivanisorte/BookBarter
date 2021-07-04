@@ -3,34 +3,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="HardcodedText">
 
-    <item
-        android:id="@+id/nav_dashboard"
-        android:title="Dashboard"
-        android:onClick="OnDashboardClick"/>
+
 
     <item
-        android:id="@+id/nav_notifications"
-        android:title="Notifications"
-        android:onClick="OnNotificationsClick"/>
+        android:id="@+id/nav_dashboard"
+        android:title="DASHBOARD"
+        />
+
+<!--    <item-->
+<!--        android:id="@+id/nav_notifications"-->
+<!--        android:title="Notifications"-->
+<!--        android:onClick="OnNotificationsClick"/>-->
 
     <item
         android:id="@+id/nav_personal_library"
-        android:title="Personal Library"
-        android:onClick="OnPersonalLibraryClick"/>
+        android:title="PERSONAL LIBRARY"
+        />
 
-    <item
-        android:id="@+id/nav_history"
-        android:title="Borrowing/Lending History"
-        android:onClick="OnBorrowLendClick"/>
+<!--    <item-->
+<!--        android:id="@+id/nav_history"-->
+<!--        android:title="Borrowing/Lending History"-->
+<!--        android:onClick="OnBorrowLendClick"/>-->
 
     <item
         android:id="@+id/nav_account"
-        android:title="My Account"
-        android:onClick="OnMyAccountClick"/>
+        android:title="MY ACCOUNT"
+        />
 
     <item
         android:id="@+id/nav_logout"
-        android:title="Logout"
+        android:title="LOGOUT"
         android:onClick="OnLogoutClick"/>
 
 </menu>
