@@ -169,10 +169,10 @@ public class BorrowLendActivity extends AppCompatActivity {
                                     if (book.equals(bookId)) {
                                         if (req_type.equals("received")) {
                                             mCurrentSate = "req_received";
-                                            //sendRequestButton.setText("Accept Borrow Request");
+                                            sendRequestButton.setText("Accept Borrow Request");
                                         } else if (req_type.equals("sent")) {
                                             mCurrentSate = "req_sent";
-                                           // sendRequestButton.setText("Cancel Request");
+                                            sendRequestButton.setText("Cancel Request");
 
                                         }
                                     }
@@ -229,9 +229,9 @@ public class BorrowLendActivity extends AppCompatActivity {
 
                                             Toast.makeText(BorrowLendActivity.this, "Opening Email App to Send Request", Toast.LENGTH_SHORT).show();
                                             String SUBJECT = "BORROW REQUEST VIA BOOK BARTER APP FOR ";
-                                            String MESSAGE = "Hey fellow Book Barter App User \n Request to Borrow " +displayBookName +" till "+dateformat.getText().toString()+" \n Thank you.";
+                                            String MESSAGE = "Hey fellow Book Barter App User \n Request to Borrow " + displayBookName + " till " + dateformat.getText().toString() + " \n Thank you.";
 
-                                           // String emailsend = userId.child("email").getE().toString();
+                                            // String emailsend = userId.child("email").getE().toString();
 //                                        ref.addValueEventListener(new ValueEventListener() {
 //                                            @Override
 //                                            public void onDataChange(DataSnapshot dataSnapshot) {
@@ -242,22 +242,22 @@ public class BorrowLendActivity extends AppCompatActivity {
                                             intent.setData(Uri.parse("mailto:")); // only email apps should handle this
                                             intent.putExtra(Intent.EXTRA_EMAIL, new String[]{userEmail});
                                             intent.putExtra(Intent.EXTRA_SUBJECT, SUBJECT + displayBookName);
-                                            intent.putExtra(Intent.EXTRA_TEXT , MESSAGE);
-                                            if(dateformat.getText().toString() != null) {
+                                            intent.putExtra(Intent.EXTRA_TEXT, MESSAGE);
+                                            if (dateformat.getText().toString() != null) {
                                                 if (intent.resolveActivity(getPackageManager()) != null) {
                                                     startActivity(intent);
+                                                } else {
+                                                    Toast.makeText(BorrowLendActivity.this, "No app availabel to handle request", Toast.LENGTH_SHORT).show();
                                                 }
-                                                else{
-                                                    Toast.makeText(BorrowLendActivity.this, "No available app to handle request", Toast.LENGTH_SHORT).show();
-                                                }
-                                            }else{
-                                                Toast.makeText(BorrowLendActivity.this, "Select Date till when you want to borrow first", Toast.LENGTH_SHORT).show();
+                                            } else {
+                                                Toast.makeText(BorrowLendActivity.this, "Select Return Date First ", Toast.LENGTH_SHORT).show();
                                             }
 //                                        @Override
 //                                        public void onCancelled(DatabaseError databaseError) {
 //                                            Toast.makeText(BorrowLendActivity.this, "Error", Toast.LENGTH_SHORT).show();
 //
 //                                        }
+                                        }
                                     });
                                 } else {
                                     Toast.makeText(BorrowLendActivity.this, "Failed to Send Request", Toast.LENGTH_SHORT).show();
@@ -335,11 +335,15 @@ public class BorrowLendActivity extends AppCompatActivity {
                     DatePickerDialog datePickerDialog = new DatePickerDialog(BorrowLendActivity.this, new DatePickerDialog.OnDateSetListener() {
                         @Override
                         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                            final SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+                            Calendar calendar = Calendar.getInstance();
+                            calendar.set(year, month, dayOfMonth);
+                            String sDate = sdf.format(calendar.getTime());
                            // dateformat.setText(SimpleDateFormat.getDateInstance().format(c.getTime()));
-                           c.set(Calendar.YEAR,year);
-                           c.set(Calendar.MONTH,month);
-                           c.set(Calendar.DAY_OF_MONTH, day);
-                           dateformat.setText(DateFormat.getDateInstance().format(c.getTime()));
+//                           c.set(Calendar.YEAR,year);
+//                           c.set(Calendar.MONTH,month);
+//                           c.set(Calendar.DAY_OF_MONTH, day);
+//                           dateformat.setText(DateFormat.getDateInstance().format(c.getTime()));
 
                         }
                     }, year, month,day);
