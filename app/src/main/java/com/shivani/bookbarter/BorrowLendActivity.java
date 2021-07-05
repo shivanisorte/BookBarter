@@ -70,12 +70,13 @@ public class BorrowLendActivity extends AppCompatActivity {
             setContentView(R.layout.activity_borrow_lend);
             bookId = getIntent().getStringExtra("uid");
             userRef = FirebaseDatabase.getInstance().getReference().child("Books").child(bookId);
-            userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            userRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     userId = snapshot.child("ownerUserId").getValue().toString();
                     userEmail = snapshot.child("email").getValue().toString();
                     userPin = snapshot.child("ownerpincode").getValue().toString();
+                    displayBookName = snapshot.child("name").getValue().toString();
 
                 }
 
@@ -111,7 +112,7 @@ public class BorrowLendActivity extends AppCompatActivity {
             location = findViewById(R.id.location);
             title.setText("BOOK BARTER APP REMINDER TO RETURN BORROWED BOOK");
             location.setText("Return at location :" + userPin);
-            description.setText("Return Book "+bookName+" borrowed Via Book Barter App" );
+            description.setText("Return Book "+displayBookName+" borrowed Via Book Barter App" );
 
             mbookName = (TextView) findViewById(R.id.bookName);
 
@@ -266,7 +267,7 @@ public class BorrowLendActivity extends AppCompatActivity {
                 }
 
             });
-            //CheckBookAvailabiltiy(userId);
+
 
             calenderButton.setOnClickListener(new View.OnClickListener() {
                 @Override
