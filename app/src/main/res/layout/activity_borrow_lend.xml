@@ -49,6 +49,7 @@
                 android:id="@+id/bookName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:textColor="@color/cardview_dark_background"/>
 
             <TextView
@@ -89,12 +90,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 />
+
             <Button
-                android:id="@+id/calender"
+                android:id="@+id/date_picker"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_margin="10dp"
-                android:text = "Set Reminder to Return Book"
+                android:text = "Select Time to Borrow"
 
                 />
 
@@ -105,16 +106,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="10dp"
+                android:text="Send Request to Borrow this Book"
 
                 />
 
             <Button
-                android:id="@+id/date_picker"
+                android:id="@+id/calender"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:text = "Select Time to Borrow"
+                android:layout_margin="10dp"
+                android:text = "Set Reminder to Return Book"
 
                 />
+
 
 
         </LinearLayout>
