@@ -69,7 +69,7 @@ public class ProfileData extends AppCompatActivity
         map.put("firstname",fname.getText().toString());
         map.put("lastname",lname.getText().toString());
         map.put("phonenum",phonenum.getText().toString());
-        map.put("pincode",pincode.getText().toString());
+        map.put("ownerpincode",pincode.getText().toString());
         map.put("email",email);
         FirebaseDatabase.getInstance().getReference().child("Users").push()
                 .setValue(map)
