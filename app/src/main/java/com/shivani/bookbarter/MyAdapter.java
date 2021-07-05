@@ -49,11 +49,27 @@ public class MyAdapter extends FirebaseRecyclerAdapter<model,MyAdapter.myviewhol
 
     @Override
     protected void onBindViewHolder(@NonNull final myviewholder holder, final int position, @NonNull final model model) {
+        DatabaseReference ref;
+        final String[] ownerPin = new String[1];
+        ref = FirebaseDatabase.getInstance().getReference("Books").child(getRef(position).getKey());
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ownerPin[0] = snapshot.child("ownerpincode").getValue().toString();
+                holder.ownerpincode.setText("Pin Code: " + ownerPin[0]);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         holder.name.setText(model.getName());
         holder.author.setText("Author: " + model.getAuthor());
 //        holder.email.setText(model.getEmail());
         holder.genre.setText("Genre: " + model.getGenre());
-        holder.ownerpincode.setText("Pin Code: " + model.getPincode());
+//
+      //  holder.ownerpincode.setText("Pin Code: " + ownerPin[0]);
         Glide.with(holder.img.getContext()).load("https://images.unsplash.com/photo-1476275466078-4007374efbbe?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjh8fGJvb2t8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60").into(holder.img);
 
 //        holder.updatebutton.setOnClickListener(new View.OnClickListener() {
@@ -135,14 +151,14 @@ public class MyAdapter extends FirebaseRecyclerAdapter<model,MyAdapter.myviewhol
 //            }
 //        });
         holder.reqbutton.setOnClickListener(new View.OnClickListener() {
-            DatabaseReference ref;
+           // DatabaseReference ref;
 
             @Override
             public void onClick(View v) {
 
 //                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 //                String SUBJECT = "BORROW REQUEST VIA BOOK BARTER APP FOR ";
-//                ref = FirebaseDatabase.getInstance().getReference("students").child(getRef(position).getKey());//.child("email");
+//
 //
 //                // String  emailsend =  FirebaseDatabase.getInstance().getReference("students").child("email").toString();
 //                ref.addValueEventListener(new ValueEventListener() {
@@ -193,6 +209,8 @@ public class MyAdapter extends FirebaseRecyclerAdapter<model,MyAdapter.myviewhol
         CircleImageView img;
         TextView name,author,email,genre,ownerpincode;
         Button deletebutton, updatebutton, reqbutton ;
+        DatabaseReference ref;
+        String ownerPin ;
         //public EditText title , description , location;
         public myviewholder(@NonNull View itemView)
         {
