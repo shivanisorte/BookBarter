@@ -247,7 +247,7 @@ public class BorrowLendActivity extends AppCompatActivity {
                                                 if (intent.resolveActivity(getPackageManager()) != null) {
                                                     startActivity(intent);
                                                 } else {
-                                                    Toast.makeText(BorrowLendActivity.this, "No app availabel to handle request", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(BorrowLendActivity.this, "No app available to handle request", Toast.LENGTH_SHORT).show();
                                                 }
                                             } else {
                                                 Toast.makeText(BorrowLendActivity.this, "Select Return Date First ", Toast.LENGTH_SHORT).show();
@@ -275,33 +275,11 @@ public class BorrowLendActivity extends AppCompatActivity {
                         });
 
                     }
-                    //cancel request state
-                    //add on failure listener later(to handle errors)
-//                    if (mCurrentSate.equals("req_sent")) {//.child(userId).child(bookId).
-//                        reqReference.child(mUser.getUid()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
-//                            @Override
-//                            public void onSuccess(Void aVoid) {//child(mUser.getUid()).child(bookId)
-//                                reqReference.child(userId).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
-//                                    @Override
-//                                    public void onSuccess(Void aVoid) {
-//                                        sendRequestButton.setEnabled(true);
-//                                        mCurrentSate = "not_lent";
-//                                        sendRequestButton.setText("Send Request to Borrow");
-//
-//                                        Toast.makeText(BorrowLendActivity.this, "Request Cancelled", Toast.LENGTH_SHORT).show();
-//
-//
-//                                    }
-//                                });
-//                            }
-//                        });
-//                    }
 
-                    //PerformAction(userId);
                 }
 
             });
-
+//Button that sets intent to calendar to set reminder to return with predefined fields
 
             calenderButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -312,6 +290,7 @@ public class BorrowLendActivity extends AppCompatActivity {
                     intent.putExtra(CalendarContract.Events.DESCRIPTION, description.getText().toString());
                     intent.putExtra(CalendarContract.Events.EVENT_LOCATION, location.getText().toString());
                     intent.putExtra(CalendarContract.Events.ALL_DAY, true);
+                    //intent.putExtra("endTime", dateformat.getText().toString());
                     intent.putExtra(Intent.EXTRA_EMAIL, userEmail);
                     if (intent.resolveActivity(getPackageManager()) != null) {
                         startActivity(intent);
@@ -322,7 +301,7 @@ public class BorrowLendActivity extends AppCompatActivity {
                     }
                 }
             });
-
+//Date Picker to select date till which user want to borrow book
             dateButton.setOnClickListener(new View.OnClickListener() {
                 @RequiresApi(api = Build.VERSION_CODES.N)
                 @Override
@@ -335,16 +314,9 @@ public class BorrowLendActivity extends AppCompatActivity {
                     DatePickerDialog datePickerDialog = new DatePickerDialog(BorrowLendActivity.this, new DatePickerDialog.OnDateSetListener() {
                         @Override
                         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-//                            final SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-//                            Calendar calendar = Calendar.getInstance();
-//                            calendar.set(year, month, dayOfMonth);
-//                            String sDate = sdf.format(calendar.getTime());
-                           // dateformat.setText(SimpleDateFormat.getDateInstance().format(c.getTime()));
-//                           c.set(Calendar.YEAR,year);
-//                           c.set(Calendar.MONTH,month);
-//                           c.set(Calendar.DAY_OF_MONTH, day);
-//                           dateformat.setText(DateFormat.getDateInstance().format(c.getTime()));
-                            dateformat.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
+
+                          //dateformat.setText(DateFormat.getDateInstance().format(c.getTime()));
+                          dateformat.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
 
                         }
                     }, year, month,day);
@@ -361,153 +333,6 @@ public class BorrowLendActivity extends AppCompatActivity {
         }
 
 
-// Check Avalabilty of book method - to check if book is avilable to borrow
-//    private void CheckBookAvailabiltiy(String userId) {
-//        lentReference.child(mUser.getUid()).child(userId).addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                if (snapshot.exists()) {
-//                    currentSate = "lent";
-//                    sendRequestButton.setText("Lent");
-//                    sendRequestButton.setVisibility(View.GONE);
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-//        reqReference.child(userId).child(mUser.getUid()).addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                if (snapshot.exists()) {
-//                    currentSate = "borrowed";
-//                    sendRequestButton.setText("Borrowed");
-//                   sendRequestButton.setVisibility(View.GONE); }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-//        reqReference.child(mUser.getUid()).child(userId).addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                if (snapshot.exists()) {
-//                    if (snapshot.child("status").getValue().toString().equals("pending")) {
-//                        currentSate = "sent/Pending";
-//                        sendRequestButton.setText("Cancel Request");
-//                        declineRequestButton.setVisibility(View.GONE);
-//                    }
-//                    if (snapshot.child("status").getValue().toString().equals("declined")) {
-//                    }
-//                    currentSate = "declined";
-//                    sendRequestButton.setText("Cancel Request");
-//                    declineRequestButton.setVisibility(View.GONE);
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-//        reqReference.child(userId).child(mUser.getUid()).addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                if(snapshot.exists()){
-//                    if(snapshot.child("status").getValue().toString().equals("pending")){
-//                        currentSate = "received/pending";
-//                        sendRequestButton.setText("Accepts Borrow Request");
-//                        declineRequestButton.setText("Decline Borrow Request");
-//                        declineRequestButton.setVisibility(View.VISIBLE);
-//                    }
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-//        if(currentSate.equals("nil")){
-//            currentSate="nil";
-//            sendRequestButton.setText("Send Request to Borrow Book");
-//            declineRequestButton.setVisibility(View.GONE);
-//        }
-//    }
-//// Perform action method - to be executed when user sends request
-//    private void PerformAction(String userId) {
-//        if (currentSate.equals("nil")) {
-//            HashMap hashmap = new HashMap();
-//            hashmap.put("satus", "pending");
-//            reqReference.child(mUser.getUid()).child(userId).updateChildren(hashmap).addOnCompleteListener(new OnCompleteListener() {
-//                @Override
-//                public void onComplete(@NonNull Task task) {
-//                    if (task.isSuccessful()) {
-//                        Toast.makeText(BorrowLendActivity.this, "Request Sent", Toast.LENGTH_LONG).show();
-//                         //declineRequestButton.setVisibility(View.GONE);
-//                         currentSate = "sent/Pending";
-//                         sendRequestButton.setText("Cancel Request");
-//                    } else {
-//                        Toast.makeText(BorrowLendActivity.this, "" + task.getException().toString(), Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//            });
-//
-//        }
-//        if (currentSate.equals("sent/Pending") || currentSate.equals(("declined"))) {
-//            reqReference.child(mUser.getUid()).child(userId).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
-//                @Override
-//                public void onComplete(@NonNull Task<Void> task) {
-//                    if (task.isSuccessful()) {
-//                        Toast.makeText(BorrowLendActivity.this, "Request Cancelled", Toast.LENGTH_SHORT).show();
-//                        currentSate = "nil";
-//                        sendRequestButton.setText(("Send Request to Borrow Book"));
-//                       declineRequestButton.setVisibility(View.GONE);
-//
-//                    } else {
-//                        Toast.makeText(BorrowLendActivity.this, ""+task.getException().toString(), Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//            });
-//        }
-//        if (currentSate.equals("received/pending")) {
-//            reqReference.child(mUser.getUid()).child(userId).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
-//                @Override
-//                public void onComplete(@NonNull Task<Void> task) {
-//                    if (task.isSuccessful()) {
-//                        HashMap hashmap = new HashMap();
-//                        hashmap.put("status", "Lent");
-//                        hashmap.put("name", bookName);
-//                        lentReference.child(mUser.getUid()).child(userId).updateChildren(hashmap).addOnCompleteListener(new OnCompleteListener() {
-//                            @Override
-//                            public void onComplete(@NonNull Task task) {
-//                                if (task.isSuccessful()) {
-//                                    lentReference.child(userId).child(mUser.getUid()).updateChildren(hashmap).addOnCompleteListener(new OnCompleteListener() {
-//                                        @Override
-//                                        public void onComplete(@NonNull Task task) {
-//                                            Toast.makeText(BorrowLendActivity.this, "Book Lent", Toast.LENGTH_SHORT).show();
-//                                            currentSate = "lent";
-//
-//                                        }
-//                                    });
-//                                }
-//                            }
-//                        });
-//                    }
-//
-//                }
-//            });
-//        }
-//        if (currentSate.equals("lent")) {
-//            //
-//        }
-//    }
-//
 
 
 
