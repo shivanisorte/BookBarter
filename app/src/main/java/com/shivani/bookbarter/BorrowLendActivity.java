@@ -135,7 +135,7 @@ public class BorrowLendActivity extends AppCompatActivity {
             description = findViewById(R.id.description);
             location = findViewById(R.id.location);
             title.setText("BOOK BARTER APP REMINDER TO RETURN BORROWED BOOK");
-            location.setText("Return at location :" + userPin);
+            location.setText("Return location :" + userPin);
             description.setText("Return Book "+displayBookName+" borrowed Via Book Barter App" );
 
             mbookName = (TextView) findViewById(R.id.bookName);
@@ -335,15 +335,15 @@ public class BorrowLendActivity extends AppCompatActivity {
                     DatePickerDialog datePickerDialog = new DatePickerDialog(BorrowLendActivity.this, new DatePickerDialog.OnDateSetListener() {
                         @Override
                         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                            final SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-                            Calendar calendar = Calendar.getInstance();
-                            calendar.set(year, month, dayOfMonth);
-                            String sDate = sdf.format(calendar.getTime());
+//                            final SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+//                            Calendar calendar = Calendar.getInstance();
+//                            calendar.set(year, month, dayOfMonth);
+//                            String sDate = sdf.format(calendar.getTime());
                            // dateformat.setText(SimpleDateFormat.getDateInstance().format(c.getTime()));
-//                           c.set(Calendar.YEAR,year);
-//                           c.set(Calendar.MONTH,month);
-//                           c.set(Calendar.DAY_OF_MONTH, day);
-//                           dateformat.setText(DateFormat.getDateInstance().format(c.getTime()));
+                           c.set(Calendar.YEAR,year);
+                           c.set(Calendar.MONTH,month);
+                           c.set(Calendar.DAY_OF_MONTH, day);
+                           dateformat.setText(DateFormat.getDateInstance().format(c.getTime()));
 
                         }
                     }, year, month,day);

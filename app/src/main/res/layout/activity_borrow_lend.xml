@@ -58,6 +58,14 @@
                 android:text = "Select Time to Borrow"
 
                 />
+            <Button
+                android:id="@+id/req_books"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:text="Send Request to Borrow this Book"
+
+                />
 
 
 
@@ -65,7 +73,15 @@
                 android:id="@+id/date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:textColor="@color/cardview_dark_background"/>
+            <TextView
+                android:text="SET THE FOLLOWING REMINDER"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/cardview_dark_background"/>
+
 
 
 
@@ -104,14 +120,6 @@
 
 
 
-            <Button
-                android:id="@+id/req_books"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_margin="10dp"
-                android:text="Send Request to Borrow this Book"
-
-                />
 
 
 

@@ -128,6 +128,7 @@ public class AddData extends AppCompatActivity
         map.put("ownername",ownername);
         map.put("ownerpincode",pincode);
         map.put("genre",genre.getText().toString());
+        map.put("ownerUserId",FirebaseAuth.getInstance().getCurrentUser().getUid());
         //String emailid = email.getText().toString();
         FirebaseDatabase.getInstance().getReference().child("Books").push()
                 .setValue(map)
