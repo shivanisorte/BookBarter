@@ -56,6 +56,7 @@ public class BorrowLendActivity extends AppCompatActivity {
     private String bookId, userId;
     private TextView mbookName;
     private String displayBookName;
+    private String userEmail;
 
 
 
@@ -70,6 +71,8 @@ public class BorrowLendActivity extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     userId = snapshot.child("ownerUserId").getValue().toString();
+                    userEmail = snapshot.child("email").getValue().toString();
+
                 }
 
                 @Override
@@ -189,7 +192,7 @@ public class BorrowLendActivity extends AppCompatActivity {
                                             Toast.makeText(BorrowLendActivity.this, "Request Sent Successfully", Toast.LENGTH_SHORT).show();
                                             String SUBJECT = "BORROW REQUEST VIA BOOK BARTER APP FOR ";
 
-                                            String emailsend = mUser.getEmail().toString();
+                                           // String emailsend = userId.child("email").getE().toString();
 //                                        ref.addValueEventListener(new ValueEventListener() {
 //                                            @Override
 //                                            public void onDataChange(DataSnapshot dataSnapshot) {
@@ -198,7 +201,7 @@ public class BorrowLendActivity extends AppCompatActivity {
 
                                             Intent intent = new Intent(Intent.ACTION_SENDTO);
                                             intent.setData(Uri.parse("mailto:")); // only email apps should handle this
-                                            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{emailsend});
+                                            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{userEmail});
                                             intent.putExtra(Intent.EXTRA_SUBJECT, SUBJECT + displayBookName);
                                             // if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
                                             startActivity(intent);
