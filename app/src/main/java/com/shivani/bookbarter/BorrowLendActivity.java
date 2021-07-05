@@ -340,10 +340,11 @@ public class BorrowLendActivity extends AppCompatActivity {
 //                            calendar.set(year, month, dayOfMonth);
 //                            String sDate = sdf.format(calendar.getTime());
                            // dateformat.setText(SimpleDateFormat.getDateInstance().format(c.getTime()));
-                           c.set(Calendar.YEAR,year);
-                           c.set(Calendar.MONTH,month);
-                           c.set(Calendar.DAY_OF_MONTH, day);
-                           dateformat.setText(DateFormat.getDateInstance().format(c.getTime()));
+//                           c.set(Calendar.YEAR,year);
+//                           c.set(Calendar.MONTH,month);
+//                           c.set(Calendar.DAY_OF_MONTH, day);
+//                           dateformat.setText(DateFormat.getDateInstance().format(c.getTime()));
+                            dateformat.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
 
                         }
                     }, year, month,day);
