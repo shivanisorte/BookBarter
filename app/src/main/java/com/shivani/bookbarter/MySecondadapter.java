@@ -63,16 +63,16 @@ public class MySecondadapter extends FirebaseRecyclerAdapter<model,MySecondadapt
                         .create();
 
                 View myview=dialogPlus.getHolderView();
-                final EditText purl=myview.findViewById(R.id.uimgurl);
+//                final EditText purl=myview.findViewById(R.id.uimgurl);
                 final EditText name=myview.findViewById(R.id.uname);
                 final EditText author=myview.findViewById(R.id.uauthor);
-                final EditText email=myview.findViewById(R.id.uemail);
+//                final EditText email=myview.findViewById(R.id.uemail);
                 Button submit=myview.findViewById(R.id.usubmit);
 
-                purl.setText(model.getPurl());
+//                purl.setText(model.getPurl());
                 name.setText(model.getName());
                 author.setText(model.getAuthor());
-                email.setText(model.getEmail());
+//                email.setText(model.getEmail());
 
                 dialogPlus.show();
 
@@ -80,9 +80,7 @@ public class MySecondadapter extends FirebaseRecyclerAdapter<model,MySecondadapt
                     @Override
                     public void onClick(View view) {
                         Map<String,Object> map=new HashMap<>();
-                        map.put("purl",purl.getText().toString());
                         map.put("name",name.getText().toString());
-                        map.put("email",email.getText().toString());
                         map.put("author",author.getText().toString());
 
                         FirebaseDatabase.getInstance().getReference().child("Books")

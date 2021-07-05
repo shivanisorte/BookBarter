@@ -60,9 +60,9 @@ public class model
         this.genre = genre;
     }
 
-    public void setPincode(String pincode)
+    public void setPincode(String ownerpincode)
     {
-        this.ownerpincode = pincode;
+        this.ownerpincode = ownerpincode;
     }
 
     public String getPurl() {

@@ -10,7 +10,7 @@
 
     <RelativeLayout
         android:layout_width="401dp"
-        android:layout_height="288dp"
+        android:layout_height="332dp"
         android:padding="15dp">
 
 
@@ -61,16 +61,16 @@
             android:textSize="20sp" />
 
 
-        <!--        <TextView-->
-        <!--            android:id="@+id/pintext"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_below="@id/genre"-->
-        <!--            android:layout_marginLeft="10dp"-->
-        <!--            android:layout_toRightOf="@id/img1"-->
-        <!--            android:text="This is Owner's Pin"-->
-        <!--            android:textColor="#000"-->
-        <!--            android:textSize="20sp" />-->
+        <TextView
+            android:id="@+id/pintext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/genre"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/img1"
+            android:text="This is Owner's Pin"
+            android:textColor="#000"
+            android:textSize="20sp" />
 
         <!--        <TextView-->
         <!--            android:id="@+id/pin_code"-->
@@ -88,7 +88,7 @@
             android:id="@+id/reqbutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/genre"
+            android:layout_below="@id/pintext"
             android:layout_marginTop="10dp"
             android:backgroundTint="#FAE2DA"
             android:fontFamily="@font/francois_one"

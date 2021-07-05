@@ -16,13 +16,13 @@
         android:textColor="#442C2A"
         android:background="#FEDBD0"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Image URL"
-        android:id="@+id/uimgurl"
-        android:layout_marginTop="10dp"
-        android:textSize="20sp"/>
+<!--    <EditText-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="Image URL"-->
+<!--        android:id="@+id/uimgurl"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:textSize="20sp"/>-->
 
     <EditText
         android:layout_width="match_parent"
@@ -40,13 +40,13 @@
         android:layout_marginTop="10dp"
         android:textSize="20sp"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Email"
-        android:id="@+id/uemail"
-        android:layout_marginTop="10dp"
-        android:textSize="20sp"/>
+<!--    <EditText-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="Email"-->
+<!--        android:id="@+id/uemail"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:textSize="20sp"/>-->
 
     <Button
         android:layout_width="300dp"
@@ -58,7 +58,7 @@
         android:fontFamily="@font/francois_one"
         android:layout_gravity="center"
         android:textSize="20sp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="10dp"
         />
 
