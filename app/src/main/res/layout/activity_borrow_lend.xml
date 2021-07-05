@@ -103,9 +103,11 @@
 <!--            android:orientation="vertical">-->
 
             <EditText
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="10dp"
                 android:id ="@+id/title"
+                android:fontFamily="@font/francois_one"
                 android:layout_width="330sp"
+                android:textColor="#442C2A"
                 android:layout_height="wrap_content"
                 />
 
@@ -113,6 +115,8 @@
             <EditText
                 android:id ="@+id/description"
                 android:layout_width="330sp"
+                android:fontFamily="@font/francois_one"
+                android:textColor="#442C2A"
                 android:layout_height="wrap_content"
                 />
 
@@ -120,8 +124,12 @@
             <EditText
                 android:id ="@+id/location"
                 android:layout_width="330sp"
+                android:textColor="#442C2A"
+                android:fontFamily="@font/francois_one"
                 android:layout_height="wrap_content"
                 />
+
+
 
 
 
