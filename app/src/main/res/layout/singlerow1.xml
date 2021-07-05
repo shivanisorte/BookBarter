@@ -28,7 +28,7 @@
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@id/img1"
             android:fontFamily="@font/francois_one"
-            android:text="This is Demo Name"
+            android:text="This is Book Name"
             android:textColor="#000"
             android:textSize="23sp"
             android:textStyle="bold" />

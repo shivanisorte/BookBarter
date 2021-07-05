@@ -96,8 +96,6 @@ public class UploadLibActivity extends AppCompatActivity {
                 }
 
 
-
-
             }
         });
 
