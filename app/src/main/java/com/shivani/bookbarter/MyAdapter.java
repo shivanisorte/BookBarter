@@ -48,13 +48,12 @@ public class MyAdapter extends FirebaseRecyclerAdapter<model,MyAdapter.myviewhol
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull final myviewholder holder, final int position, @NonNull final model model)
-    {
+    protected void onBindViewHolder(@NonNull final myviewholder holder, final int position, @NonNull final model model) {
         holder.name.setText(model.getName());
-        holder.author.setText("Author: "+model.getAuthor());
+        holder.author.setText("Author: " + model.getAuthor());
 //        holder.email.setText(model.getEmail());
-        holder.genre.setText("Genre: "+model.getGenre());
-        holder.ownerpincode.setText("Pin Code: "+model.getPincode());
+        holder.genre.setText("Genre: " + model.getGenre());
+        holder.ownerpincode.setText("Pin Code: " + model.getPincode());
         Glide.with(holder.img.getContext()).load("https://images.unsplash.com/photo-1476275466078-4007374efbbe?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjh8fGJvb2t8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60").into(holder.img);
 
 //        holder.updatebutton.setOnClickListener(new View.OnClickListener() {
@@ -137,6 +136,7 @@ public class MyAdapter extends FirebaseRecyclerAdapter<model,MyAdapter.myviewhol
 //        });
         holder.reqbutton.setOnClickListener(new View.OnClickListener() {
             DatabaseReference ref;
+
             @Override
             public void onClick(View v) {
 
@@ -165,18 +165,18 @@ public class MyAdapter extends FirebaseRecyclerAdapter<model,MyAdapter.myviewhol
 //                    }
 //                });
 
-                Intent intent = new Intent(v.getContext(),BorrowLendActivity.class);
+                Intent intent = new Intent(v.getContext(), BorrowLendActivity.class);
                 //set flag
                 //Start activity
-                intent.putExtra("uid",getRef(position).getKey().toString());
+                intent.putExtra("uid", getRef(position).getKey().toString());
                 v.getContext().startActivity(intent);
 
 
             }
 
 
-
         });
+    }
 
 
 

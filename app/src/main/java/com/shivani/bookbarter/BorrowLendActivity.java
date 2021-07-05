@@ -58,7 +58,7 @@ public class BorrowLendActivity extends AppCompatActivity {
     private String bookId, userId;
     private TextView mbookName;
     private String displayBookName;
-    private String userEmail;
+    private String userEmail , userPin;
     private EditText title , description , location;
 
 
@@ -75,6 +75,7 @@ public class BorrowLendActivity extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     userId = snapshot.child("ownerUserId").getValue().toString();
                     userEmail = snapshot.child("email").getValue().toString();
+                    userPin = snapshot.child("ownerpincode").getValue().toString();
 
                 }
 
@@ -104,10 +105,13 @@ public class BorrowLendActivity extends AppCompatActivity {
 
             sendRequestButton = (Button) findViewById(R.id.req_books);
             declineRequestButton = (Button) findViewById(R.id.cancel_req);
-            calenderButton = (Button) findViewById(R.id.calender;
+            calenderButton = (Button) findViewById(R.id.calender);
             title = findViewById(R.id.title);
             description = findViewById(R.id.description);
             location = findViewById(R.id.location);
+            title.setText("BOOK BARTER APP REMINDER TO RETURN BORROWED BOOK");
+            location.setText("Return at location :" + userPin);
+            description.setText("Return Book "+bookName+" borrowed Via Book Barter App" );
 
             mbookName = (TextView) findViewById(R.id.bookName);
 
@@ -270,18 +274,18 @@ public class BorrowLendActivity extends AppCompatActivity {
                     Intent intent = new Intent(Intent.ACTION_INSERT);
                     intent.setData(CalendarContract.Events.CONTENT_URI);
                     intent.putExtra(CalendarContract.Events.TITLE, title.getText().toString());
-                    intent.putExtra(CalendarContract.Events.DESCRIPTION , description.getText().toString());
-                    intent.putExtra(CalendarContract.Events.EVENT_LOCATION , location.getText().toString());
-                    intent.putExtra(CalendarContract.Events.ALL_DAY , true);
+                    intent.putExtra(CalendarContract.Events.DESCRIPTION, description.getText().toString());
+                    intent.putExtra(CalendarContract.Events.EVENT_LOCATION, location.getText().toString());
+                    intent.putExtra(CalendarContract.Events.ALL_DAY, true);
                     intent.putExtra(Intent.EXTRA_EMAIL, userEmail);
-                    if(intent.resolveActivity(getPackageManager()) != null){
+                    if (intent.resolveActivity(getPackageManager()) != null) {
                         startActivity(intent);
 
 
-                }
-                    else{
+                    } else {
                         Toast.makeText(BorrowLendActivity.this, "No app to handle this action", Toast.LENGTH_SHORT).show();
                     }
+                }
             });
 
 
@@ -289,7 +293,7 @@ public class BorrowLendActivity extends AppCompatActivity {
 
 
         }
-    }
+
 
 // Check Avalabilty of book method - to check if book is avilable to borrow
 //    private void CheckBookAvailabiltiy(String userId) {
