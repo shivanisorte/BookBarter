@@ -102,9 +102,10 @@
                 />
 
             <Button
-                android:id="@+id/cancel_req"
+                android:id="@+id/date_picker"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:text = "Select Time to Borrow"
 
                 />
 

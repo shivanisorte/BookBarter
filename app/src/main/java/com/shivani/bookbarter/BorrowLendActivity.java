@@ -1,9 +1,12 @@
 package com.shivani.bookbarter;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.icu.util.Calendar;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 //import android.support.annotation.NonNull;
 //import android.support.v7.app.AppCompatActivity;
@@ -11,12 +14,14 @@ import android.provider.CalendarContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.firebase.ui.auth.AuthUI;
@@ -51,7 +56,7 @@ public class BorrowLendActivity extends AppCompatActivity {
     private FirebaseAuth mFirebaseAuth;
     private FirebaseUser mUser;
     private FirebaseAuth.AuthStateListener mFirebaseAuthListener;
-    private Button sendRequestButton, declineRequestButton , calenderButton;
+    private Button sendRequestButton, dateButton , calenderButton;
     private String mCurrentSate;
     private String bookName;
     private ProgressDialog mProgressDialog;
@@ -70,13 +75,29 @@ public class BorrowLendActivity extends AppCompatActivity {
             setContentView(R.layout.activity_borrow_lend);
             bookId = getIntent().getStringExtra("uid");
             userRef = FirebaseDatabase.getInstance().getReference().child("Books").child(bookId);
+            calenderButton = (Button) findViewById(R.id.calender);
+            title = findViewById(R.id.title);
+            description = findViewById(R.id.description);
+            location = findViewById(R.id.location);
+            dateButton = findViewById(R.id.date_picker);
+
+
             userRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    userId = snapshot.child("ownerUserId").getValue().toString();
-                    userEmail = snapshot.child("email").getValue().toString();
-                    userPin = snapshot.child("ownerpincode").getValue().toString();
-                    displayBookName = snapshot.child("name").getValue().toString();
+                    if(snapshot.exists()) {
+                        userId = snapshot.child("ownerUserId").getValue().toString();
+                        userEmail = snapshot.child("email").getValue().toString();
+                        userPin = snapshot.child("ownerpincode").getValue().toString();
+                        displayBookName = snapshot.child("name").getValue().toString();
+                        title.setText("BOOK BARTER APP REMINDER TO RETURN BORROWED BOOK");
+                        location.setText("Return at location :" + userPin);
+                        description.setText("Return Book "+displayBookName+" borrowed Via Book Barter App" );
+
+                    }
+                    else{
+                        Toast.makeText(BorrowLendActivity.this, "An error occurred", Toast.LENGTH_SHORT).show();
+                    }
 
                 }
 
@@ -105,7 +126,7 @@ public class BorrowLendActivity extends AppCompatActivity {
 
 
             sendRequestButton = (Button) findViewById(R.id.req_books);
-            declineRequestButton = (Button) findViewById(R.id.cancel_req);
+            //declineRequestButton = (Button) findViewById(R.id.cancel_req);
             calenderButton = (Button) findViewById(R.id.calender);
             title = findViewById(R.id.title);
             description = findViewById(R.id.description);
@@ -200,7 +221,8 @@ public class BorrowLendActivity extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<Void> task) {
                                             sendRequestButton.setEnabled(true);
                                             mCurrentSate = "req_sent";
-                                            sendRequestButton.setText("Cancel Request");
+                                            sendRequestButton.setText("Request Sent");
+                                            sendRequestButton.setEnabled(false);
 
                                             Toast.makeText(BorrowLendActivity.this, "Opening Email App to Send Request", Toast.LENGTH_SHORT).show();
                                             String SUBJECT = "BORROW REQUEST VIA BOOK BARTER APP FOR ";
@@ -286,6 +308,27 @@ public class BorrowLendActivity extends AppCompatActivity {
                     } else {
                         Toast.makeText(BorrowLendActivity.this, "No app to handle this action", Toast.LENGTH_SHORT).show();
                     }
+                }
+            });
+
+            dateButton.setOnClickListener(new View.OnClickListener() {
+                @RequiresApi(api = Build.VERSION_CODES.N)
+                @Override
+                public void onClick(View v) {
+                    Calendar c = Calendar.getInstance();
+                    int year = c.get(Calendar.YEAR);
+                    int month = c.get(Calendar.MONTH);
+                    int day = c.get(Calendar.DAY_OF_MONTH);
+
+                    DatePickerDialog datePickerDialog = new DatePickerDialog(BorrowLendActivity.this, new DatePickerDialog.OnDateSetListener() {
+                        @Override
+                        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+                        }
+                    }, year, month,day);
+                    datePickerDialog.show();
+
+
                 }
             });
 
