@@ -42,31 +42,31 @@
                 android:gravity="center"
                 android:textColor="#000"
                 android:fontFamily="@font/francois_one"
-                android:textSize="20sp"
+                android:textSize="23sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="30dp"
                 />
 
             <Button
                 android:id="@+id/date_picker"
-                android:layout_width="match_parent"
+                android:layout_width="310sp"
                 android:layout_height="50dp"
                 android:text="Select Time to Borrow"
+                android:textColor="@color/black"
                 android:fontFamily="@font/francois_one"
-                android:textColor="#442C2A"
-                android:textSize="17dp"
+                android:textSize="19dp"
 
                 />
 
             <Button
                 android:id="@+id/req_books"
-                android:layout_width="match_parent"
+                android:layout_width="310sp"
                 android:layout_height="50dp"
+                android:textColor="@color/colorBlack"
                 android:layout_margin="10dp"
                 android:fontFamily="@font/francois_one"
                 android:text="Send Request to Borrow this Book"
-                 android:textColor="#442C2A"
-                 android:textSize="17dp"
+                 android:textSize="19dp"
 
                 />
 
@@ -131,12 +131,12 @@
 
             <Button
                 android:id="@+id/calender"
-                android:layout_width="match_parent"
+                android:layout_width="310sp"
                 android:layout_height="50dp"
                 android:layout_margin="10dp"
                 android:text = "Set Reminder to Return Book"
-                android:textColor="#442C2A"
-                android:textSize="17dp"
+                android:textColor="@color/black"
+                android:textSize="19dp"
                 android:fontFamily="@font/francois_one"
 
                 />
