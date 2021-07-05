@@ -14,13 +14,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/profile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:src="@drawable/ic_users" />
-
 
 
 
@@ -40,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textColor="#000"
+                android:textColor="#442C2A"
                 android:fontFamily="@font/francois_one"
                 android:textSize="25sp"
                 android:textStyle="bold"
@@ -81,12 +74,12 @@
                 android:layout_marginBottom="50dp"/>
             <TextView
                 android:text="SET THE FOLLOWING REMINDER"
-                android:textSize="22sp"
+                android:textSize="23sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:fontFamily="@font/francois_one"
-                android:textColor="@color/cardview_dark_background"/>
+                android:textColor="#442C2A"/>
 
 
 
@@ -106,7 +99,7 @@
                 android:layout_marginTop="10dp"
                 android:id ="@+id/title"
                 android:fontFamily="@font/francois_one"
-                android:layout_width="330sp"
+                android:layout_width="310sp"
                 android:textColor="#442C2A"
                 android:layout_height="wrap_content"
                 />
@@ -114,7 +107,7 @@
 
             <EditText
                 android:id ="@+id/description"
-                android:layout_width="330sp"
+                android:layout_width="310sp"
                 android:fontFamily="@font/francois_one"
                 android:textColor="#442C2A"
                 android:layout_height="wrap_content"
@@ -123,7 +116,7 @@
 
             <EditText
                 android:id ="@+id/location"
-                android:layout_width="330sp"
+                android:layout_width="310sp"
                 android:textColor="#442C2A"
                 android:fontFamily="@font/francois_one"
                 android:layout_height="wrap_content"
@@ -142,7 +135,7 @@
                 android:id="@+id/calender"
                 android:layout_width="310sp"
                 android:layout_height="50dp"
-                android:layout_margin="10dp"
+                android:layout_marginTop="20dp"
                 android:text = "Set Reminder to Return Book"
                 android:textColor="@color/black"
                 android:textSize="19dp"
