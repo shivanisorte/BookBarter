@@ -41,29 +41,32 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textColor="#000"
-                android:textSize="23sp"
+                android:fontFamily="@font/francois_one"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="30dp"
                 />
+
             <Button
                 android:id="@+id/date_picker"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:text = "Select Time to Borrow"
+                android:text="Select Time to Borrow"
+                android:fontFamily="@font/francois_one"
                 android:textColor="#442C2A"
-                android:textSize="15dp"
-                android:textStyle="bold"
+                android:textSize="17dp"
 
                 />
+
             <Button
                 android:id="@+id/req_books"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="10dp"
+                android:fontFamily="@font/francois_one"
                 android:text="Send Request to Borrow this Book"
                  android:textColor="#442C2A"
-                 android:textSize="15dp"
-                 android:textStyle="bold"
+                 android:textSize="17dp"
 
                 />
 
@@ -78,10 +81,11 @@
                 android:layout_marginBottom="50dp"/>
             <TextView
                 android:text="SET THE FOLLOWING REMINDER"
-                android:textSize="20sp"
+                android:textSize="18.5sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:fontFamily="@font/francois_one"
                 android:textColor="@color/cardview_dark_background"/>
 
 
@@ -132,8 +136,8 @@
                 android:layout_margin="10dp"
                 android:text = "Set Reminder to Return Book"
                 android:textColor="#442C2A"
-                android:textSize="15dp"
-                android:textStyle="bold"
+                android:textSize="17dp"
+                android:fontFamily="@font/francois_one"
 
                 />
 
