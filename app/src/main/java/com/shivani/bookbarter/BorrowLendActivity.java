@@ -7,9 +7,11 @@ import android.net.Uri;
 import android.os.Bundle;
 //import android.support.annotation.NonNull;
 //import android.support.v7.app.AppCompatActivity;
+import android.provider.CalendarContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,7 +51,7 @@ public class BorrowLendActivity extends AppCompatActivity {
     private FirebaseAuth mFirebaseAuth;
     private FirebaseUser mUser;
     private FirebaseAuth.AuthStateListener mFirebaseAuthListener;
-    private Button sendRequestButton, declineRequestButton;
+    private Button sendRequestButton, declineRequestButton , calenderButton;
     private String mCurrentSate;
     private String bookName;
     private ProgressDialog mProgressDialog;
@@ -57,6 +59,7 @@ public class BorrowLendActivity extends AppCompatActivity {
     private TextView mbookName;
     private String displayBookName;
     private String userEmail;
+    private EditText title , description , location;
 
 
 
@@ -101,6 +104,11 @@ public class BorrowLendActivity extends AppCompatActivity {
 
             sendRequestButton = (Button) findViewById(R.id.req_books);
             declineRequestButton = (Button) findViewById(R.id.cancel_req);
+            calenderButton = (Button) findViewById(R.id.calender;
+            title = findViewById(R.id.title);
+            description = findViewById(R.id.description);
+            location = findViewById(R.id.location);
+
             mbookName = (TextView) findViewById(R.id.bookName);
 
             //LoadUser();
@@ -189,7 +197,7 @@ public class BorrowLendActivity extends AppCompatActivity {
                                             mCurrentSate = "req_sent";
                                             sendRequestButton.setText("Cancel Request");
 
-                                            Toast.makeText(BorrowLendActivity.this, "Request Sent Successfully", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(BorrowLendActivity.this, "Opening Email App to Send Request", Toast.LENGTH_SHORT).show();
                                             String SUBJECT = "BORROW REQUEST VIA BOOK BARTER APP FOR ";
 
                                            // String emailsend = userId.child("email").getE().toString();
@@ -255,6 +263,29 @@ public class BorrowLendActivity extends AppCompatActivity {
 
             });
             //CheckBookAvailabiltiy(userId);
+
+            calenderButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(Intent.ACTION_INSERT);
+                    intent.setData(CalendarContract.Events.CONTENT_URI);
+                    intent.putExtra(CalendarContract.Events.TITLE, title.getText().toString());
+                    intent.putExtra(CalendarContract.Events.DESCRIPTION , description.getText().toString());
+                    intent.putExtra(CalendarContract.Events.EVENT_LOCATION , location.getText().toString());
+                    intent.putExtra(CalendarContract.Events.ALL_DAY , true);
+                    intent.putExtra(Intent.EXTRA_EMAIL, userEmail);
+                    if(intent.resolveActivity(getPackageManager()) != null){
+                        startActivity(intent);
+
+
+                }
+                    else{
+                        Toast.makeText(BorrowLendActivity.this, "No app to handle this action", Toast.LENGTH_SHORT).show();
+                    }
+            });
+
+
+        }
 
 
         }

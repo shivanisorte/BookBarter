@@ -63,6 +63,34 @@
             android:gravity="center"
             android:orientation="vertical">
 
+            <EditText
+                android:id ="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+
+            <EditText
+                android:id ="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+
+            <EditText
+                android:id ="@+id/location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+            <Button
+                android:id="@+id/calender"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:text = "Set Reminder to Return Book"
+
+                />
+
 
 
             <Button

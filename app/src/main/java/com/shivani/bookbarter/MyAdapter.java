@@ -6,10 +6,12 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.provider.CalendarContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -177,7 +179,6 @@ public class MyAdapter extends FirebaseRecyclerAdapter<model,MyAdapter.myviewhol
         });
 
 
-    }
 
     @NonNull
     @Override
@@ -191,7 +192,8 @@ public class MyAdapter extends FirebaseRecyclerAdapter<model,MyAdapter.myviewhol
     {
         CircleImageView img;
         TextView name,author,email,genre,ownerpincode;
-        Button deletebutton, updatebutton, reqbutton;
+        Button deletebutton, updatebutton, reqbutton ;
+        //public EditText title , description , location;
         public myviewholder(@NonNull View itemView)
         {
             super(itemView);
@@ -205,6 +207,8 @@ public class MyAdapter extends FirebaseRecyclerAdapter<model,MyAdapter.myviewhol
             updatebutton= (Button) itemView.findViewById(R.id.updatebutton);
             deletebutton= (Button) itemView.findViewById(R.id.deletebutton);
             reqbutton = (Button) itemView.findViewById(R.id.reqbutton);
+
+
         }
     }
 }
