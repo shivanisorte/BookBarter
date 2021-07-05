@@ -38,6 +38,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -61,7 +62,7 @@ public class BorrowLendActivity extends AppCompatActivity {
     private String bookName;
     private ProgressDialog mProgressDialog;
     private String bookId, userId;
-    private TextView mbookName;
+    private TextView mbookName , dateformat;
     private String displayBookName;
     private String userEmail , userPin;
     private EditText title , description , location;
@@ -80,6 +81,7 @@ public class BorrowLendActivity extends AppCompatActivity {
             description = findViewById(R.id.description);
             location = findViewById(R.id.location);
             dateButton = findViewById(R.id.date_picker);
+            dateformat = (TextView) findViewById(R.id.date);
 
 
             userRef.addValueEventListener(new ValueEventListener() {
@@ -226,6 +228,7 @@ public class BorrowLendActivity extends AppCompatActivity {
 
                                             Toast.makeText(BorrowLendActivity.this, "Opening Email App to Send Request", Toast.LENGTH_SHORT).show();
                                             String SUBJECT = "BORROW REQUEST VIA BOOK BARTER APP FOR ";
+                                            String MESSAGE = "Hey fellow Book Barter App User \n Request to Borrow " +displayBookName +" from "+dateformat.getText().toString()+" \n Thank you.";
 
                                            // String emailsend = userId.child("email").getE().toString();
 //                                        ref.addValueEventListener(new ValueEventListener() {
@@ -238,6 +241,7 @@ public class BorrowLendActivity extends AppCompatActivity {
                                             intent.setData(Uri.parse("mailto:")); // only email apps should handle this
                                             intent.putExtra(Intent.EXTRA_EMAIL, new String[]{userEmail});
                                             intent.putExtra(Intent.EXTRA_SUBJECT, SUBJECT + displayBookName);
+                                            intent.putExtra(Intent.EXTRA_TEXT , MESSAGE);
                                             // if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
                                             startActivity(intent);
                                         }
@@ -323,6 +327,7 @@ public class BorrowLendActivity extends AppCompatActivity {
                     DatePickerDialog datePickerDialog = new DatePickerDialog(BorrowLendActivity.this, new DatePickerDialog.OnDateSetListener() {
                         @Override
                         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                            dateformat.setText(SimpleDateFormat.getDateInstance().format(c.getTime()));
 
                         }
                     }, year, month,day);
