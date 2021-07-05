@@ -88,6 +88,9 @@ public class DashboardActivity extends AppCompatActivity {
                     case R.id.nav_account:
                         redirectActivity(DashboardActivity.this, AccountActivity.class);
                         return true;
+                    case R.id.aboutapp:
+                        redirectActivity(DashboardActivity.this, Aboutapp.class);
+                        return true;
                     default:
                         return true;
                 }

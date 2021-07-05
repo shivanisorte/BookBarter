@@ -91,6 +91,9 @@ public class UploadLibActivity extends AppCompatActivity {
                     case R.id.nav_account:
                         redirectActivity(UploadLibActivity.this, AccountActivity.class);
                         return true;
+                    case R.id.aboutapp:
+                        redirectActivity(UploadLibActivity.this, Aboutapp.class);
+                        return true;
                     default:
                         return true;
                 }

@@ -30,6 +30,12 @@
         android:title="MY ACCOUNT"
         />
 
+
+    <item
+        android:id="@+id/aboutapp"
+        android:title="ABOUT APP"
+        />
+
     <item
         android:id="@+id/nav_logout"
         android:title="LOGOUT"
