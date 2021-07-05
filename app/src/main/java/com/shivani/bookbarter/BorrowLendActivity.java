@@ -169,10 +169,10 @@ public class BorrowLendActivity extends AppCompatActivity {
                                     if (book.equals(bookId)) {
                                         if (req_type.equals("received")) {
                                             mCurrentSate = "req_received";
-                                            sendRequestButton.setText("Accept Borrow Request");
+                                            //sendRequestButton.setText("Accept Borrow Request");
                                         } else if (req_type.equals("sent")) {
                                             mCurrentSate = "req_sent";
-                                            sendRequestButton.setText("Cancel Request");
+                                           // sendRequestButton.setText("Cancel Request");
 
                                         }
                                     }
@@ -243,9 +243,16 @@ public class BorrowLendActivity extends AppCompatActivity {
                                             intent.putExtra(Intent.EXTRA_EMAIL, new String[]{userEmail});
                                             intent.putExtra(Intent.EXTRA_SUBJECT, SUBJECT + displayBookName);
                                             intent.putExtra(Intent.EXTRA_TEXT , MESSAGE);
-                                            // if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
-                                            startActivity(intent);
-                                        }
+                                            if(dateformat.getText().toString() != null) {
+                                                if (intent.resolveActivity(getPackageManager()) != null) {
+                                                    startActivity(intent);
+                                                }
+                                                else{
+                                                    Toast.makeText(BorrowLendActivity.this, "No available app to handle request", Toast.LENGTH_SHORT).show();
+                                                }
+                                            }else{
+                                                Toast.makeText(BorrowLendActivity.this, "Select Date till when you want to borrow first", Toast.LENGTH_SHORT).show();
+                                            }
 //                                        @Override
 //                                        public void onCancelled(DatabaseError databaseError) {
 //                                            Toast.makeText(BorrowLendActivity.this, "Error", Toast.LENGTH_SHORT).show();
@@ -270,25 +277,25 @@ public class BorrowLendActivity extends AppCompatActivity {
                     }
                     //cancel request state
                     //add on failure listener later(to handle errors)
-                    if (mCurrentSate.equals("req_sent")) {//.child(userId).child(bookId).
-                        reqReference.child(mUser.getUid()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {//child(mUser.getUid()).child(bookId)
-                                reqReference.child(userId).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void aVoid) {
-                                        sendRequestButton.setEnabled(true);
-                                        mCurrentSate = "not_lent";
-                                        sendRequestButton.setText("Send Request to Borrow");
-
-                                        Toast.makeText(BorrowLendActivity.this, "Request Cancelled", Toast.LENGTH_SHORT).show();
-
-
-                                    }
-                                });
-                            }
-                        });
-                    }
+//                    if (mCurrentSate.equals("req_sent")) {//.child(userId).child(bookId).
+//                        reqReference.child(mUser.getUid()).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+//                            @Override
+//                            public void onSuccess(Void aVoid) {//child(mUser.getUid()).child(bookId)
+//                                reqReference.child(userId).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+//                                    @Override
+//                                    public void onSuccess(Void aVoid) {
+//                                        sendRequestButton.setEnabled(true);
+//                                        mCurrentSate = "not_lent";
+//                                        sendRequestButton.setText("Send Request to Borrow");
+//
+//                                        Toast.makeText(BorrowLendActivity.this, "Request Cancelled", Toast.LENGTH_SHORT).show();
+//
+//
+//                                    }
+//                                });
+//                            }
+//                        });
+//                    }
 
                     //PerformAction(userId);
                 }
