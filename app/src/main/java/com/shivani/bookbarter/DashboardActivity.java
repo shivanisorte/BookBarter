@@ -110,15 +110,32 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                databaseReference.child("Users").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+//                databaseReference.child("Users").get().addValueEventListner(new ValueEventListener<DataSnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+//                        if (!task.isSuccessful()) {
+//                            //Log.e("firebase", "Error getting data", task.getException());
+//                            Toast.makeText(DashboardActivity.this, "error getting data", Toast.LENGTH_SHORT).show();
+//
+//                        } else {
+//                            pincode = dataSnapshot.child(firebaseUser.getUid()).child("pincode").getValue().toString();
+//                        }
+//                    }
+//                });
+                databaseReference.addValueEventListener(new ValueEventListener() {
                     @Override
-                    public void onComplete(@NonNull Task<DataSnapshot> task) {
-                        if (!task.isSuccessful()) {
-                            Log.e("firebase", "Error getting data", task.getException());
-
-                        } else {
-                            pincode = (String) dataSnapshot.child(firebaseUser.getUid()).child("pincode").getValue();
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            pincode = snapshot.child(firebaseUser.getUid()).child("pincode").getValue().toString();
                         }
+                        else{
+                            Toast.makeText(DashboardActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
                     }
                 });
             }
@@ -128,7 +145,7 @@ public class DashboardActivity extends AppCompatActivity {
 
             }
         };
-        databaseReference.addValueEventListener(postListener);
+//        databaseReference.addValueEventListener(postListener);
 
 
         FirebaseRecyclerOptions<model> options =
