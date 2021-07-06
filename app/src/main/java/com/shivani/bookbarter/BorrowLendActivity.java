@@ -292,13 +292,13 @@ public class BorrowLendActivity extends AppCompatActivity {
                     intent.putExtra(CalendarContract.Events.ALL_DAY, true);
                     //intent.putExtra("endTime", dateformat.getText().toString());
                     intent.putExtra(Intent.EXTRA_EMAIL, userEmail);
-                    if (intent.resolveActivity(getPackageManager()) != null) {
+                    //if (intent.resolveActivity(getPackageManager()) != null) {
                         startActivity(intent);
 
 
-                    } else {
-                        Toast.makeText(BorrowLendActivity.this, "No app to handle this action", Toast.LENGTH_SHORT).show();
-                    }
+//                    } else {
+//                        Toast.makeText(BorrowLendActivity.this, "No app to handle this action", Toast.LENGTH_SHORT).show();
+//                    }
                 }
             });
 //Date Picker to select date till which user want to borrow book
