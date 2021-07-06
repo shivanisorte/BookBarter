@@ -110,14 +110,14 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                databaseReference.child("Books").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                databaseReference.child("Users").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DataSnapshot> task) {
                         if (!task.isSuccessful()) {
                             Log.e("firebase", "Error getting data", task.getException());
 
                         } else {
-                            pincode = (String) dataSnapshot.child(firebaseUser.getUid()).child("ownerpincode").getValue();
+                            pincode = (String) dataSnapshot.child(firebaseUser.getUid()).child("pincode").getValue();
                         }
                     }
                 });
