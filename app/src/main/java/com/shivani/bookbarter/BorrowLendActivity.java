@@ -243,15 +243,15 @@ public class BorrowLendActivity extends AppCompatActivity {
                                             intent.putExtra(Intent.EXTRA_EMAIL, new String[]{userEmail});
                                             intent.putExtra(Intent.EXTRA_SUBJECT, SUBJECT + displayBookName);
                                             intent.putExtra(Intent.EXTRA_TEXT, MESSAGE);
-                                            if (dateformat.getText().toString() != null) {
-                                                if (intent.resolveActivity(getPackageManager()) != null) {
+//                                            if (dateformat.getText().toString() != null) {
+//                                                if (intent.resolveActivity(getPackageManager()) != null) {
                                                     startActivity(intent);
-                                                } else {
-                                                    Toast.makeText(BorrowLendActivity.this, "No app available to handle request", Toast.LENGTH_SHORT).show();
-                                                }
-                                            } else {
-                                                Toast.makeText(BorrowLendActivity.this, "Select Return Date First ", Toast.LENGTH_SHORT).show();
-                                            }
+//                                                } else {
+//                                                    Toast.makeText(BorrowLendActivity.this, "No app available to handle request", Toast.LENGTH_SHORT).show();
+//                                                }
+//                                            } else {
+//                                                Toast.makeText(BorrowLendActivity.this, "Select Return Date First ", Toast.LENGTH_SHORT).show();
+//                                            }
 //                                        @Override
 //                                        public void onCancelled(DatabaseError databaseError) {
 //                                            Toast.makeText(BorrowLendActivity.this, "Error", Toast.LENGTH_SHORT).show();
